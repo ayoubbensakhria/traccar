@@ -82,7 +82,7 @@ public class SmppClient implements SmsManager {
     private byte destNpi;
 
     public SmppClient() {
-        sessionConfig.setName("Traccar.smppSession");
+        sessionConfig.setName("Geontrack.smppSession");
         sessionConfig.setInterfaceVersion(
                 (byte) Context.getConfig().getInteger("sms.smpp.version", SmppConstants.VERSION_3_4));
         sessionConfig.setType(SmppBindType.TRANSCEIVER);

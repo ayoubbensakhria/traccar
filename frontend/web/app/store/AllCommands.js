@@ -16,9 +16,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.AllCommands', {
+Ext.define('Geontrack.store.AllCommands', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.Command',
+    model: 'Geontrack.model.Command',
 
     proxy: {
         type: 'rest',

@@ -16,6 +16,6 @@
  */
 
 Ext.application({
-    name: 'Traccar',
-    extend: 'Traccar.Application'
+    name: 'Geontrack',
+    extend: 'Geontrack.Application'
 });

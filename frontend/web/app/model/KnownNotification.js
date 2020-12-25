@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.model.KnownNotification', {
+Ext.define('Geontrack.model.KnownNotification', {
     extend: 'Ext.data.Model',
     idProperty: 'type',
 
@@ -25,7 +25,7 @@ Ext.define('Traccar.model.KnownNotification', {
     }, {
         name: 'name',
         convert: function (v, rec) {
-            return Traccar.app.getEventString(rec.get('type'));
+            return Geontrack.app.getEventString(rec.get('type'));
         },
         depends: ['type']
     }]

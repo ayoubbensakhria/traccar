@@ -16,16 +16,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.NotificationsController', {
-    extend: 'Traccar.view.edit.ToolbarController',
+Ext.define('Geontrack.view.edit.NotificationsController', {
+    extend: 'Geontrack.view.edit.ToolbarController',
     alias: 'controller.notifications',
 
     requires: [
-        'Traccar.view.dialog.Notification',
-        'Traccar.model.Notification'
+        'Geontrack.view.dialog.Notification',
+        'Geontrack.model.Notification'
     ],
 
-    objectModel: 'Traccar.model.Notification',
-    objectDialog: 'Traccar.view.dialog.Notification',
+    objectModel: 'Geontrack.model.Notification',
+    objectDialog: 'Geontrack.view.dialog.Notification',
     removeTitle: Strings.sharedNotification
 });

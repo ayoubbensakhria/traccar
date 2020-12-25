@@ -15,9 +15,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.Devices', {
+Ext.define('Geontrack.store.Devices', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.Device',
+    model: 'Geontrack.model.Device',
 
     proxy: {
         type: 'rest',

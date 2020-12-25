@@ -15,13 +15,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.Device', {
-    extend: 'Traccar.view.dialog.BaseEdit',
+Ext.define('Geontrack.view.dialog.Device', {
+    extend: 'Geontrack.view.dialog.BaseEdit',
 
     requires: [
-        'Traccar.view.ClearableComboBox',
-        'Traccar.view.dialog.DeviceController',
-        'Traccar.view.UnescapedTextField'
+        'Geontrack.view.ClearableComboBox',
+        'Geontrack.view.dialog.DeviceController',
+        'Geontrack.view.UnescapedTextField'
     ],
 
     controller: 'device',
@@ -80,8 +80,8 @@ Ext.define('Traccar.view.dialog.Device', {
                 listConfig: {
                     getInnerTpl: function () {
                         return '<table><tr valign="middle" ><td><div align="center" style="width:40px;height:40px;" >' +
-                        '{[new XMLSerializer().serializeToString(Traccar.DeviceImages.getImageSvg(' +
-                        'Traccar.Style.mapColorOnline, false, 0, values.key))]}</div></td>' +
+                        '{[new XMLSerializer().serializeToString(Geontrack.DeviceImages.getImageSvg(' +
+                        'Geontrack.Style.mapColorOnline, false, 0, values.key))]}</div></td>' +
                         '<td>{name}</td></tr></table>';
                     }
                 }

@@ -16,16 +16,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.DeviceCommands', {
+Ext.define('Geontrack.store.DeviceCommands', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.Command',
+    model: 'Geontrack.model.Command',
 
     proxy: {
         type: 'rest',
         url: 'api/commands/send',
         listeners: {
             'exception': function (proxy, response) {
-                Traccar.app.showError(response);
+                Geontrack.app.showError(response);
             }
         }
     }

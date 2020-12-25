@@ -15,38 +15,38 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.GroupsController', {
-    extend: 'Traccar.view.edit.ToolbarController',
+Ext.define('Geontrack.view.edit.GroupsController', {
+    extend: 'Geontrack.view.edit.ToolbarController',
     alias: 'controller.groups',
 
     requires: [
-        'Traccar.view.dialog.Group',
-        'Traccar.view.permissions.Geofences',
-        'Traccar.view.permissions.ComputedAttributes',
-        'Traccar.view.permissions.Drivers',
-        'Traccar.view.permissions.SavedCommands',
-        'Traccar.view.permissions.Maintenances',
-        'Traccar.view.BaseWindow',
-        'Traccar.model.Group'
+        'Geontrack.view.dialog.Group',
+        'Geontrack.view.permissions.Geofences',
+        'Geontrack.view.permissions.ComputedAttributes',
+        'Geontrack.view.permissions.Drivers',
+        'Geontrack.view.permissions.SavedCommands',
+        'Geontrack.view.permissions.Maintenances',
+        'Geontrack.view.BaseWindow',
+        'Geontrack.model.Group'
     ],
 
-    objectModel: 'Traccar.model.Group',
-    objectDialog: 'Traccar.view.dialog.Group',
+    objectModel: 'Geontrack.model.Group',
+    objectDialog: 'Geontrack.view.dialog.Group',
     removeTitle: Strings.groupDialog,
 
     init: function () {
         this.lookupReference('toolbarDriversButton').setHidden(
-            Traccar.app.getVehicleFeaturesDisabled() || Traccar.app.getBooleanAttributePreference('ui.disableDrivers'));
+            Geontrack.app.getVehicleFeaturesDisabled() || Geontrack.app.getBooleanAttributePreference('ui.disableDrivers'));
         this.lookupReference('toolbarAttributesButton').setHidden(
-            Traccar.app.getBooleanAttributePreference('ui.disableComputedAttributes'));
-        this.lookupReference('toolbarCommandsButton').setHidden(Traccar.app.getPreference('limitCommands', false));
+            Geontrack.app.getBooleanAttributePreference('ui.disableComputedAttributes'));
+        this.lookupReference('toolbarCommandsButton').setHidden(Geontrack.app.getPreference('limitCommands', false));
         this.lookupReference('toolbarMaintenancesButton').setHidden(
-            Traccar.app.getVehicleFeaturesDisabled() || Traccar.app.getBooleanAttributePreference('ui.disableMaintenance'));
+            Geontrack.app.getVehicleFeaturesDisabled() || Geontrack.app.getBooleanAttributePreference('ui.disableMaintenance'));
     },
 
     onGeofencesClick: function () {
         var group = this.getView().getSelectionModel().getSelection()[0];
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedGeofences,
             items: {
                 xtype: 'linkGeofencesView',
@@ -60,7 +60,7 @@ Ext.define('Traccar.view.edit.GroupsController', {
 
     onAttributesClick: function () {
         var group = this.getView().getSelectionModel().getSelection()[0];
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedComputedAttributes,
             items: {
                 xtype: 'linkComputedAttributesView',
@@ -74,7 +74,7 @@ Ext.define('Traccar.view.edit.GroupsController', {
 
     onDriversClick: function () {
         var group = this.getView().getSelectionModel().getSelection()[0];
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedDrivers,
             items: {
                 xtype: 'linkDriversView',
@@ -88,7 +88,7 @@ Ext.define('Traccar.view.edit.GroupsController', {
 
     onCommandsClick: function () {
         var group = this.getView().getSelectionModel().getSelection()[0];
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedSavedCommands,
             items: {
                 xtype: 'linkSavedCommandsView',
@@ -102,7 +102,7 @@ Ext.define('Traccar.view.edit.GroupsController', {
 
     onNotificationsClick: function () {
         var group = this.getView().getSelectionModel().getSelection()[0];
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedNotifications,
             items: {
                 xtype: 'linkNotificationsView',
@@ -116,7 +116,7 @@ Ext.define('Traccar.view.edit.GroupsController', {
 
     onMaintenancesClick: function () {
         var group = this.getView().getSelectionModel().getSelection()[0];
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedMaintenance,
             items: {
                 xtype: 'linkMaintenancesView',

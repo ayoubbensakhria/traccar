@@ -15,15 +15,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.Devices', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.edit.Devices', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'devicesView',
 
     requires: [
-        'Traccar.AttributeFormatter',
-        'Traccar.view.edit.DevicesController',
-        'Traccar.view.ArrayListFilter',
-        'Traccar.view.DeviceMenu'
+        'Geontrack.AttributeFormatter',
+        'Geontrack.view.edit.DevicesController',
+        'Geontrack.view.ArrayListFilter',
+        'Geontrack.view.DeviceMenu'
     ],
 
     controller: 'devices',
@@ -95,7 +95,7 @@ Ext.define('Traccar.view.edit.Devices', {
     columns: {
         defaults: {
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal
+            minWidth: Geontrack.Style.columnWidthNormal
         },
         items: [{
             text: Strings.sharedName,
@@ -127,11 +127,11 @@ Ext.define('Traccar.view.edit.Devices', {
                 labelField: 'name',
                 store: 'Groups'
             },
-            renderer: Traccar.AttributeFormatter.getFormatter('groupId')
+            renderer: Geontrack.AttributeFormatter.getFormatter('groupId')
         }, {
             text: Strings.sharedDisabled,
             dataIndex: 'disabled',
-            renderer: Traccar.AttributeFormatter.getFormatter('disabled'),
+            renderer: Geontrack.AttributeFormatter.getFormatter('disabled'),
             hidden: true,
             filter: 'boolean'
         }, {
@@ -148,7 +148,7 @@ Ext.define('Traccar.view.edit.Devices', {
                 var i, name, result = '';
                 if (Ext.isArray(value)) {
                     for (i = 0; i < value.length; i++) {
-                        name = Traccar.AttributeFormatter.geofenceIdFormatter(value[i]);
+                        name = Geontrack.AttributeFormatter.geofenceIdFormatter(value[i]);
                         if (name) {
                             result += name + (i < value.length - 1 ? ', ' : '');
                         }
@@ -177,7 +177,7 @@ Ext.define('Traccar.view.edit.Devices', {
         }, {
             text: Strings.deviceLastUpdate,
             dataIndex: 'lastUpdate',
-            renderer: Traccar.AttributeFormatter.getFormatter('lastUpdate')
+            renderer: Geontrack.AttributeFormatter.getFormatter('lastUpdate')
         }]
     }
 });

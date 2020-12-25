@@ -15,18 +15,18 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.MainMobile', {
+Ext.define('Geontrack.view.MainMobile', {
     extend: 'Ext.container.Viewport',
     alias: 'widget.mainMobile',
 
     id: 'rootPanel',
 
     requires: [
-        'Traccar.view.edit.Devices',
-        'Traccar.view.State',
-        'Traccar.view.Report',
-        'Traccar.view.Events',
-        'Traccar.view.map.Map'
+        'Geontrack.view.edit.Devices',
+        'Geontrack.view.State',
+        'Geontrack.view.Report',
+        'Geontrack.view.Events',
+        'Geontrack.view.map.Map'
     ],
 
     layout: 'card',

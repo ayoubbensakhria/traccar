@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.ReportPeriods', {
+Ext.define('Geontrack.store.ReportPeriods', {
     extend: 'Ext.data.Store',
     fields: ['key', 'name'],
 

@@ -16,20 +16,20 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.ReportTrips', {
+Ext.define('Geontrack.store.ReportTrips', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.ReportTrip',
+    model: 'Geontrack.model.ReportTrip',
 
     proxy: {
         type: 'rest',
         url: 'api/reports/trips',
-        timeout: Traccar.Style.reportTimeout,
+        timeout: Geontrack.Style.reportTimeout,
         headers: {
             'Accept': 'application/json'
         },
         listeners: {
             exception: function (proxy, exception) {
-                Traccar.app.showError(exception);
+                Geontrack.app.showError(exception);
             }
         }
     }

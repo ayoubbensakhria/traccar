@@ -16,9 +16,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.AllComputedAttributes', {
+Ext.define('Geontrack.store.AllComputedAttributes', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.ComputedAttribute',
+    model: 'Geontrack.model.ComputedAttribute',
 
     proxy: {
         type: 'rest',

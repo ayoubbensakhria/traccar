@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.store.DeviceImages', {
+Ext.define('Geontrack.store.DeviceImages', {
     extend: 'Ext.data.Store',
     fields: ['key', 'name', 'svg', 'fillId', 'rotateId', 'scaleId'],
 

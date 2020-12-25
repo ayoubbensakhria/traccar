@@ -16,11 +16,11 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.SendCommand', {
-    extend: 'Traccar.view.dialog.Base',
+Ext.define('Geontrack.view.dialog.SendCommand', {
+    extend: 'Geontrack.view.dialog.Base',
 
     requires: [
-        'Traccar.view.dialog.SendCommandController'
+        'Geontrack.view.dialog.SendCommandController'
     ],
 
     controller: 'sendCommand',

@@ -15,12 +15,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.map.MapController', {
-    extend: 'Traccar.view.map.MapMarkerController',
+Ext.define('Geontrack.view.map.MapController', {
+    extend: 'Geontrack.view.map.MapMarkerController',
     alias: 'controller.map',
 
     requires: [
-        'Traccar.GeofenceConverter'
+        'Geontrack.GeofenceConverter'
     ],
 
     config: {
@@ -45,17 +45,17 @@ Ext.define('Traccar.view.map.MapController', {
     init: function () {
         this.callParent();
         this.lookupReference('showReportsButton').setVisible(
-            Traccar.app.isMobile() && !Traccar.app.getBooleanAttributePreference('ui.disableReport'));
+            Geontrack.app.isMobile() && !Geontrack.app.getBooleanAttributePreference('ui.disableReport'));
         this.lookupReference('showEventsButton').setVisible(
-            Traccar.app.isMobile() && !Traccar.app.getBooleanAttributePreference('ui.disableEvents'));
+            Geontrack.app.isMobile() && !Geontrack.app.getBooleanAttributePreference('ui.disableEvents'));
     },
 
     showReports: function () {
-        Traccar.app.showReports(true);
+        Geontrack.app.showReports(true);
     },
 
     showEvents: function () {
-        Traccar.app.showEvents(true);
+        Geontrack.app.showEvents(true);
     },
 
     onFollowClick: function (button, pressed) {
@@ -81,7 +81,7 @@ Ext.define('Traccar.view.map.MapController', {
         if (this.lookupReference('showGeofencesButton').pressed) {
             Ext.getStore('Geofences').each(function (geofence) {
                 var feature = new ol.Feature(
-                    Traccar.GeofenceConverter.wktToGeometry(this.getView().getMapView(), geofence.get('area')));
+                    Geontrack.GeofenceConverter.wktToGeometry(this.getView().getMapView(), geofence.get('area')));
                 feature.setStyle(this.getAreaStyle(
                     Ext.String.htmlDecode(geofence.get('name')),
                     geofence.get('attributes') ? geofence.get('attributes').color : null));

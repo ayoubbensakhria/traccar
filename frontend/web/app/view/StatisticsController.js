@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-Ext.define('Traccar.view.StatisticsController', {
+Ext.define('Geontrack.view.StatisticsController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.statistics',
 

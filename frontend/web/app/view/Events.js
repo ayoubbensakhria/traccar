@@ -16,12 +16,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.Events', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.Events', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'eventsView',
 
     requires: [
-        'Traccar.view.EventsController'
+        'Geontrack.view.EventsController'
     ],
 
     controller: 'events',
@@ -98,12 +98,12 @@ Ext.define('Traccar.view.Events', {
     columns: {
         defaults: {
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal
+            minWidth: Geontrack.Style.columnWidthNormal
         },
         items: [{
             text: Strings.sharedDevice,
             dataIndex: 'deviceId',
-            renderer: Traccar.AttributeFormatter.getFormatter('deviceId')
+            renderer: Geontrack.AttributeFormatter.getFormatter('deviceId')
         }, {
             flex: 2,
             text: Strings.positionEvent,
@@ -111,7 +111,7 @@ Ext.define('Traccar.view.Events', {
         }, {
             text: Strings.positionFixTime,
             dataIndex: 'serverTime',
-            renderer: Traccar.AttributeFormatter.getFormatter('lastUpdate')
+            renderer: Geontrack.AttributeFormatter.getFormatter('lastUpdate')
         }]
     }
 });

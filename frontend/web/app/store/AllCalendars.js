@@ -16,9 +16,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.AllCalendars', {
+Ext.define('Geontrack.store.AllCalendars', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.Calendar',
+    model: 'Geontrack.model.Calendar',
 
     proxy: {
         type: 'rest',

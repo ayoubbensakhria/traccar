@@ -16,8 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.permissions.Maintenances', {
-    extend: 'Traccar.view.permissions.Base',
+Ext.define('Geontrack.view.permissions.Maintenances', {
+    extend: 'Geontrack.view.permissions.Base',
     xtype: 'linkMaintenancesView',
 
     columns: {
@@ -25,13 +25,13 @@ Ext.define('Traccar.view.permissions.Maintenances', {
             text: Strings.sharedName,
             dataIndex: 'name',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: 'string'
         }, {
             text: Strings.sharedType,
             dataIndex: 'type',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: {
                 type: 'list',
                 idField: 'key',
@@ -46,18 +46,18 @@ Ext.define('Traccar.view.permissions.Maintenances', {
             text: Strings.maintenanceStart,
             dataIndex: 'start',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             renderer: function (value, metaData, record) {
-                return Traccar.AttributeFormatter.renderAttribute(
+                return Geontrack.AttributeFormatter.renderAttribute(
                     value, Ext.getStore('MaintenanceTypes').getById(record.get('type')));
             }
         }, {
             text: Strings.maintenancePeriod,
             dataIndex: 'period',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             renderer: function (value, metaData, record) {
-                return Traccar.AttributeFormatter.renderAttribute(
+                return Geontrack.AttributeFormatter.renderAttribute(
                     value, Ext.getStore('MaintenanceTypes').getById(record.get('type')));
             }
         }]

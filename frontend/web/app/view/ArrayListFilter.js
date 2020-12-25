@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.ArrayListFilter', {
+Ext.define('Geontrack.view.ArrayListFilter', {
     extend: 'Ext.grid.filters.filter.List',
     alias: 'grid.filter.arraylist',
 

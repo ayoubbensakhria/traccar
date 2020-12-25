@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.DistanceUnits', {
+Ext.define('Geontrack.store.DistanceUnits', {
     extend: 'Ext.data.Store',
     fields: ['key', 'name', 'factor'],
 

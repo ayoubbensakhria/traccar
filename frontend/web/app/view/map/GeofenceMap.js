@@ -15,13 +15,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.map.GeofenceMap', {
-    extend: 'Traccar.view.map.BaseMap',
+Ext.define('Geontrack.view.map.GeofenceMap', {
+    extend: 'Geontrack.view.map.BaseMap',
     xtype: 'geofenceMapView',
 
     requires: [
-        'Traccar.view.map.GeofenceMapController',
-        'Traccar.GeofenceConverter'
+        'Geontrack.view.map.GeofenceMapController',
+        'Geontrack.GeofenceConverter'
     ],
 
     controller: 'geofenceMap',
@@ -86,14 +86,14 @@ Ext.define('Traccar.view.map.GeofenceMap', {
 
         this.features = new ol.Collection();
         if (this.area) {
-            geometry = Traccar.GeofenceConverter.wktToGeometry(this.mapView, this.area);
+            geometry = Geontrack.GeofenceConverter.wktToGeometry(this.mapView, this.area);
             this.features.push(new ol.Feature(geometry));
             this.mapView.fit(geometry);
         } else {
             this.controller.fireEvent('mapstaterequest');
         }
-        fillColor = ol.color.asArray(Traccar.Style.mapGeofenceColor);
-        fillColor[3] = Traccar.Style.mapGeofenceOverlayOpacity;
+        fillColor = ol.color.asArray(Geontrack.Style.mapGeofenceColor);
+        fillColor[3] = Geontrack.Style.mapGeofenceOverlayOpacity;
         featureOverlay = new ol.layer.Vector({
             source: new ol.source.Vector({
                 features: this.features
@@ -103,13 +103,13 @@ Ext.define('Traccar.view.map.GeofenceMap', {
                     color: fillColor
                 }),
                 stroke: new ol.style.Stroke({
-                    color: Traccar.Style.mapGeofenceColor,
-                    width: Traccar.Style.mapGeofenceWidth
+                    color: Geontrack.Style.mapGeofenceColor,
+                    width: Geontrack.Style.mapGeofenceWidth
                 }),
                 image: new ol.style.Circle({
-                    radius: Traccar.Style.mapGeofenceRadius,
+                    radius: Geontrack.Style.mapGeofenceRadius,
                     fill: new ol.style.Fill({
-                        color: Traccar.Style.mapGeofenceColor
+                        color: Geontrack.Style.mapGeofenceColor
                     })
                 })
             })

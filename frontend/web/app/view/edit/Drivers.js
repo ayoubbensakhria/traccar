@@ -16,13 +16,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.Drivers', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.edit.Drivers', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'driversView',
 
     requires: [
-        'Traccar.view.edit.DriversController',
-        'Traccar.view.edit.Toolbar'
+        'Geontrack.view.edit.DriversController',
+        'Geontrack.view.edit.Toolbar'
     ],
 
     controller: 'drivers',
@@ -39,7 +39,7 @@ Ext.define('Traccar.view.edit.Drivers', {
     columns: {
         defaults: {
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal
+            minWidth: Geontrack.Style.columnWidthNormal
         },
         items: [{
             text: Strings.sharedName,

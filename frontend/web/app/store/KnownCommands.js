@@ -15,9 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.store.KnownCommands', {
+Ext.define('Geontrack.store.KnownCommands', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.KnownCommand',
+    model: 'Geontrack.model.KnownCommand',
 
     data: [{
         type: 'custom',

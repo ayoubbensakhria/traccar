@@ -15,17 +15,17 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.Base', {
+Ext.define('Geontrack.view.dialog.Base', {
     extend: 'Ext.window.Window',
 
-    bodyPadding: Traccar.Style.normalPadding,
+    bodyPadding: Geontrack.Style.normalPadding,
     resizable: false,
     scrollable: true,
     constrain: true,
 
     initComponent: function () {
         if (window.innerHeight) {
-            this.maxHeight = window.innerHeight - Traccar.Style.normalPadding * 2;
+            this.maxHeight = window.innerHeight - Geontrack.Style.normalPadding * 2;
         }
         this.callParent();
     }

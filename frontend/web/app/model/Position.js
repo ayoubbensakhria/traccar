@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.model.Position', {
+Ext.define('Geontrack.model.Position', {
     extend: 'Ext.data.Model',
     identifier: 'negative',
 
@@ -46,7 +46,7 @@ Ext.define('Traccar.model.Position', {
     }, {
         name: 'accuracy',
         type: 'float',
-        convert: Traccar.AttributeFormatter.getConverter('accuracy')
+        convert: Geontrack.AttributeFormatter.getConverter('accuracy')
     }, {
         name: 'latitude',
         type: 'float'
@@ -59,7 +59,7 @@ Ext.define('Traccar.model.Position', {
     }, {
         name: 'speed',
         type: 'float',
-        convert: Traccar.AttributeFormatter.getConverter('speed')
+        convert: Geontrack.AttributeFormatter.getConverter('speed')
     }, {
         name: 'course',
         type: 'float'

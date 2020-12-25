@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.model.KnownCommand', {
+Ext.define('Geontrack.model.KnownCommand', {
     extend: 'Ext.data.Model',
     idProperty: 'type',
 
@@ -25,7 +25,7 @@ Ext.define('Traccar.model.KnownCommand', {
     }, {
         name: 'name',
         convert: function (v, rec) {
-            return Traccar.AttributeFormatter.getFormatter('commandType')(rec.get('type'));
+            return Geontrack.AttributeFormatter.getFormatter('commandType')(rec.get('type'));
         },
         depends: ['type']
     }, {

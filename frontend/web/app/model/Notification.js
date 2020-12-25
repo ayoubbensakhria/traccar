@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.model.Notification', {
+Ext.define('Geontrack.model.Notification', {
     extend: 'Ext.data.Model',
     identifier: 'negative',
 

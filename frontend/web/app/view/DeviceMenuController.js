@@ -16,35 +16,35 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.DeviceMenuController', {
+Ext.define('Geontrack.view.DeviceMenuController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.deviceMenu',
 
     requires: [
-        'Traccar.view.permissions.Geofences',
-        'Traccar.view.permissions.Drivers',
-        'Traccar.view.permissions.Notifications',
-        'Traccar.view.edit.ComputedAttributes',
-        'Traccar.view.permissions.SavedCommands',
-        'Traccar.view.permissions.Maintenances',
-        'Traccar.view.dialog.DeviceAccumulators',
-        'Traccar.view.BaseWindow'
+        'Geontrack.view.permissions.Geofences',
+        'Geontrack.view.permissions.Drivers',
+        'Geontrack.view.permissions.Notifications',
+        'Geontrack.view.edit.ComputedAttributes',
+        'Geontrack.view.permissions.SavedCommands',
+        'Geontrack.view.permissions.Maintenances',
+        'Geontrack.view.dialog.DeviceAccumulators',
+        'Geontrack.view.BaseWindow'
     ],
 
     init: function () {
         this.lookupReference('menuDriversButton').setHidden(
-            Traccar.app.getVehicleFeaturesDisabled() || Traccar.app.getBooleanAttributePreference('ui.disableDrivers'));
+            Geontrack.app.getVehicleFeaturesDisabled() || Geontrack.app.getBooleanAttributePreference('ui.disableDrivers'));
         this.lookupReference('menuComputedAttributesButton').setHidden(
-            Traccar.app.getBooleanAttributePreference('ui.disableComputedAttributes'));
-        this.lookupReference('menuCommandsButton').setHidden(Traccar.app.getPreference('limitCommands', false));
+            Geontrack.app.getBooleanAttributePreference('ui.disableComputedAttributes'));
+        this.lookupReference('menuCommandsButton').setHidden(Geontrack.app.getPreference('limitCommands', false));
         this.lookupReference('menuDeviceAccumulatorsButton').setHidden(
-            !Traccar.app.getUser().get('administrator') && Traccar.app.getUser().get('userLimit') === 0 || Traccar.app.getVehicleFeaturesDisabled());
+            !Geontrack.app.getUser().get('administrator') && Geontrack.app.getUser().get('userLimit') === 0 || Geontrack.app.getVehicleFeaturesDisabled());
         this.lookupReference('menuMaintenancesButton').setHidden(
-            Traccar.app.getVehicleFeaturesDisabled() || Traccar.app.getBooleanAttributePreference('ui.disableMaintenance'));
+            Geontrack.app.getVehicleFeaturesDisabled() || Geontrack.app.getBooleanAttributePreference('ui.disableMaintenance'));
     },
 
     onGeofencesClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedGeofences,
             items: {
                 xtype: 'linkGeofencesView',
@@ -57,7 +57,7 @@ Ext.define('Traccar.view.DeviceMenuController', {
     },
 
     onNotificationsClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedNotifications,
             items: {
                 xtype: 'linkNotificationsView',
@@ -70,7 +70,7 @@ Ext.define('Traccar.view.DeviceMenuController', {
     },
 
     onComputedAttributesClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedComputedAttributes,
             items: {
                 xtype: 'linkComputedAttributesView',
@@ -83,7 +83,7 @@ Ext.define('Traccar.view.DeviceMenuController', {
     },
 
     onDriversClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedDrivers,
             items: {
                 xtype: 'linkDriversView',
@@ -96,7 +96,7 @@ Ext.define('Traccar.view.DeviceMenuController', {
     },
 
     onCommandsClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedSavedCommands,
             items: {
                 xtype: 'linkSavedCommandsView',
@@ -109,7 +109,7 @@ Ext.define('Traccar.view.DeviceMenuController', {
     },
 
     onMaintenancesClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedMaintenance,
             items: {
                 xtype: 'linkMaintenancesView',
@@ -122,7 +122,7 @@ Ext.define('Traccar.view.DeviceMenuController', {
     },
 
     onDeviceAccumulatorsClick: function () {
-        var position, dialog = Ext.create('Traccar.view.dialog.DeviceAccumulators');
+        var position, dialog = Ext.create('Geontrack.view.dialog.DeviceAccumulators');
         dialog.deviceId = this.getView().up('deviceMenu').device.getId();
         position = Ext.getStore('LatestPositions').findRecord('deviceId', dialog.deviceId, 0, false, false, true);
         if (position) {

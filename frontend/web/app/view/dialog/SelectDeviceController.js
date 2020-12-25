@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.SelectDeviceController', {
+Ext.define('Geontrack.view.dialog.SelectDeviceController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.selectDevice',
 
@@ -32,7 +32,7 @@ Ext.define('Traccar.view.dialog.SelectDeviceController', {
                 if (success) {
                     Ext.Msg.alert(Strings.sharedInfoTitle, response.responseText || response.statusText);
                 } else {
-                    Traccar.app.showError(response);
+                    Geontrack.app.showError(response);
                 }
             }
         });

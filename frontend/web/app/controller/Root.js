@@ -15,15 +15,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.controller.Root', {
+Ext.define('Geontrack.controller.Root', {
     extend: 'Ext.app.Controller',
     alias: 'controller.root',
 
     requires: [
-        'Traccar.view.dialog.Login',
-        'Traccar.view.Main',
-        'Traccar.view.MainMobile',
-        'Traccar.model.Position'
+        'Geontrack.view.dialog.Login',
+        'Geontrack.view.Main',
+        'Geontrack.view.MainMobile',
+        'Geontrack.model.Position'
     ],
 
     init: function () {
@@ -34,7 +34,7 @@ Ext.define('Traccar.controller.Root', {
         data = Ext.getStore('PositionAttributes').getData().items;
         for (i = 0; i < data.length; i++) {
             attribute = data[i];
-            Traccar.model.Position.addFields([{
+            Geontrack.model.Position.addFields([{
                 name: 'attribute.' + attribute.get('key'),
                 attributeKey: attribute.get('key'),
                 calculate: this.calculateAttribute,
@@ -53,7 +53,7 @@ Ext.define('Traccar.controller.Root', {
     calculateAttribute: function (data) {
         var value = data.attributes[this.attributeKey];
         if (value !== undefined) {
-            return Traccar.AttributeFormatter.getAttributeConverter(this.attributeKey)(value);
+            return Geontrack.AttributeFormatter.getAttributeConverter(this.attributeKey)(value);
         }
         return value;
     },
@@ -67,9 +67,9 @@ Ext.define('Traccar.controller.Root', {
     },
 
     showAnnouncement: function (announcement) {
-        var maxWidth = Ext.getBody().getViewSize().width - 2 * Traccar.Style.normalPadding;
-        if (maxWidth > Traccar.Style.windowWidth) {
-            maxWidth = Traccar.Style.windowWidth;
+        var maxWidth = Ext.getBody().getViewSize().width - 2 * Geontrack.Style.normalPadding;
+        if (maxWidth > Geontrack.Style.windowWidth) {
+            maxWidth = Geontrack.Style.windowWidth;
         }
         Ext.Msg.show({
             msg: announcement,
@@ -77,14 +77,14 @@ Ext.define('Traccar.controller.Root', {
             closable: false,
             modal: false,
             maxWidth: maxWidth
-        }).alignTo(Ext.getBody(), 't-t', [0, Traccar.Style.normalPadding]);
+        }).alignTo(Ext.getBody(), 't-t', [0, Geontrack.Style.normalPadding]);
     },
 
     onServerReturn: function (options, success, response) {
         var announcement, token, parameters = {};
         if (success) {
-            Traccar.app.setServer(Ext.decode(response.responseText));
-            announcement = Traccar.app.getServer().get('announcement');
+            Geontrack.app.setServer(Ext.decode(response.responseText));
+            announcement = Geontrack.app.getServer().get('announcement');
             if (announcement) {
                 this.showAnnouncement(announcement);
             }
@@ -100,14 +100,14 @@ Ext.define('Traccar.controller.Root', {
                 callback: this.onSessionReturn
             });
         } else {
-            Traccar.app.showError(response);
+            Geontrack.app.showError(response);
         }
     },
 
     onSessionReturn: function (options, success, response) {
         Ext.get('spinner').setVisible(false);
         if (success) {
-            Traccar.app.setUser(Ext.decode(response.responseText));
+            Geontrack.app.setUser(Ext.decode(response.responseText));
             this.loadApp();
         } else {
             this.login = Ext.create('widget.login', {
@@ -148,7 +148,7 @@ Ext.define('Traccar.controller.Root', {
                 var store = Ext.getStore('ReportEventTypes');
                 if (success) {
                     store.add({
-                        type: Traccar.store.ReportEventTypes.allEvents,
+                        type: Geontrack.store.ReportEventTypes.allEvents,
                         name: Strings.eventAll
                     });
                     store.loadData(records, true);
@@ -178,7 +178,7 @@ Ext.define('Traccar.controller.Root', {
         if (attributionView) {
             attributionView.remove();
         }
-        if (Traccar.app.isMobile()) {
+        if (Geontrack.app.isMobile()) {
             Ext.create('widget.mainMobile');
         } else {
             Ext.create('widget.main');
@@ -219,7 +219,7 @@ Ext.define('Traccar.controller.Root', {
         socket = new WebSocket(protocol + '//' + window.location.host + pathname + 'api/socket');
 
         socket.onclose = function () {
-            Traccar.app.showToast(Strings.errorSocket, Strings.errorTitle);
+            Geontrack.app.showToast(Strings.errorSocket, Strings.errorTitle);
 
             Ext.Ajax.request({
                 url: 'api/devices',
@@ -245,7 +245,7 @@ Ext.define('Traccar.controller.Root', {
 
             setTimeout(function () {
                 self.asyncUpdate(false);
-            }, Traccar.Style.reconnectTimeout);
+            }, Geontrack.Style.reconnectTimeout);
         };
 
         socket.onmessage = function (event) {
@@ -289,10 +289,10 @@ Ext.define('Traccar.controller.Root', {
             if (entity) {
                 entity.set(array[i]);
             } else {
-                store.add(Ext.create('Traccar.model.Position', array[i]));
+                store.add(Ext.create('Geontrack.model.Position', array[i]));
             }
             if (Ext.getStore('Events').findRecord('positionId', array[i].id, 0, false, false, true)) {
-                Ext.getStore('EventPositions').add(Ext.create('Traccar.model.Position', array[i]));
+                Ext.getStore('EventPositions').add(Ext.create('Geontrack.model.Position', array[i]));
             }
         }
         if (first) {
@@ -319,18 +319,18 @@ Ext.define('Traccar.controller.Root', {
                 if (this.soundPressed()) {
                     this.beep();
                 }
-                Traccar.app.showToast(array[i].text, device.get('name'));
+                Geontrack.app.showToast(array[i].text, device.get('name'));
             } else {
-                Traccar.app.showToast(array[i].text);
+                Geontrack.app.showToast(array[i].text);
             }
         }
     },
 
     zoomToAllDevices: function () {
         var lat, lon, zoom;
-        lat = Traccar.app.getPreference('latitude', 0);
-        lon = Traccar.app.getPreference('longitude', 0);
-        zoom = Traccar.app.getPreference('zoom', 0);
+        lat = Geontrack.app.getPreference('latitude', 0);
+        lon = Geontrack.app.getPreference('longitude', 0);
+        zoom = Geontrack.app.getPreference('zoom', 0);
         if (lat === 0 && lon === 0 && zoom === 0) {
             this.fireEvent('zoomtoalldevices');
         }

@@ -16,8 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.permissions.Notifications', {
-    extend: 'Traccar.view.permissions.Base',
+Ext.define('Geontrack.view.permissions.Notifications', {
+    extend: 'Geontrack.view.permissions.Base',
     xtype: 'linkNotificationsView',
 
     columns: {
@@ -26,7 +26,7 @@ Ext.define('Traccar.view.permissions.Notifications', {
             dataIndex: 'type',
             flex: 2,
             renderer: function (value) {
-                return Traccar.app.getEventString(value);
+                return Geontrack.app.getEventString(value);
             },
             filter: {
                 type: 'list',
@@ -38,8 +38,8 @@ Ext.define('Traccar.view.permissions.Notifications', {
             text: Strings.notificationAlways,
             dataIndex: 'always',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
-            renderer: Traccar.AttributeFormatter.getFormatter('always'),
+            minWidth: Geontrack.Style.columnWidthNormal,
+            renderer: Geontrack.AttributeFormatter.getFormatter('always'),
             filter: 'boolean'
         }, {
             text: Strings.notificationNotificators,
@@ -56,7 +56,7 @@ Ext.define('Traccar.view.permissions.Notifications', {
                 if (value) {
                     notificators = value.split(/[ ,]+/).filter(Boolean);
                     for (i = 0; i < notificators.length; i++) {
-                        result += Traccar.app.getNotificatorString(notificators[i]) + (i < notificators.length - 1 ? ', ' : '');
+                        result += Geontrack.app.getNotificatorString(notificators[i]) + (i < notificators.length - 1 ? ', ' : '');
                     }
                 }
                 return result;
@@ -65,14 +65,14 @@ Ext.define('Traccar.view.permissions.Notifications', {
             text: Strings.sharedCalendar,
             dataIndex: 'calendarId',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             hidden: true,
             filter: {
                 type: 'list',
                 labelField: 'name',
                 store: 'AllCalendars'
             },
-            renderer: Traccar.AttributeFormatter.getFormatter('calendarId')
+            renderer: Geontrack.AttributeFormatter.getFormatter('calendarId')
         }]
     }
 });

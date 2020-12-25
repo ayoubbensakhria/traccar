@@ -16,9 +16,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.Events', {
+Ext.define('Geontrack.store.Events', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.Event',
+    model: 'Geontrack.model.Event',
 
     trackRemoved: false,
 

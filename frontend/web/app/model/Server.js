@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.model.Server', {
+Ext.define('Geontrack.model.Server', {
     extend: 'Ext.data.Model',
     identifier: 'negative',
 

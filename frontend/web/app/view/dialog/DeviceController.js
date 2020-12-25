@@ -16,12 +16,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.DeviceController', {
-    extend: 'Traccar.view.dialog.BaseEditController',
+Ext.define('Geontrack.view.dialog.DeviceController', {
+    extend: 'Geontrack.view.dialog.BaseEditController',
     alias: 'controller.device',
 
     init: function () {
-        if (Traccar.app.getUser().get('administrator')) {
+        if (Geontrack.app.getUser().get('administrator')) {
             this.lookupReference('disabledField').setHidden(false);
         }
     }

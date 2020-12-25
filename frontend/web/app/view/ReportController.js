@@ -16,16 +16,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.ReportController', {
+Ext.define('Geontrack.view.ReportController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.report',
 
     requires: [
-        'Traccar.AttributeFormatter',
-        'Traccar.model.Position',
-        'Traccar.model.ReportTrip',
-        'Traccar.view.dialog.ReportConfig',
-        'Traccar.store.ReportEventTypes'
+        'Geontrack.AttributeFormatter',
+        'Geontrack.model.Position',
+        'Geontrack.model.ReportTrip',
+        'Geontrack.view.dialog.ReportConfig',
+        'Geontrack.store.ReportEventTypes'
     ],
 
     config: {
@@ -60,7 +60,7 @@ Ext.define('Traccar.view.ReportController', {
     },
 
     hideReports: function () {
-        Traccar.app.showReports(false);
+        Geontrack.app.showReports(false);
     },
 
     getGrid: function () {
@@ -79,11 +79,11 @@ Ext.define('Traccar.view.ReportController', {
             this.routeColumns.push({
                 text: attribute.get('name'),
                 dataIndex: 'attribute.' + attribute.get('key'),
-                renderer: Traccar.AttributeFormatter.getAttributeFormatter(attribute.get('key')),
+                renderer: Geontrack.AttributeFormatter.getAttributeFormatter(attribute.get('key')),
                 hidden: true
             });
         }
-        if (Traccar.app.getVehicleFeaturesDisabled()) {
+        if (Geontrack.app.getVehicleFeaturesDisabled()) {
             for (i = 0; i < this.summaryColumns.length; i++) {
                 if (this.summaryColumns[i].dataIndex.match('engineHours|spentFuel')) {
                     this.summaryColumns[i].hidden = true;
@@ -103,7 +103,7 @@ Ext.define('Traccar.view.ReportController', {
     },
 
     onConfigureClick: function () {
-        var dialog = Ext.create('Traccar.view.dialog.ReportConfig');
+        var dialog = Ext.create('Geontrack.view.dialog.ReportConfig');
         dialog.lookupReference('eventTypeField').setHidden(this.lookupReference('reportTypeField').getValue() !== 'events');
         dialog.lookupReference('chartTypeField').setHidden(this.lookupReference('reportTypeField').getValue() !== 'chart');
         dialog.callingPanel = this;
@@ -112,7 +112,7 @@ Ext.define('Traccar.view.ReportController', {
         if (this.eventType !== undefined) {
             dialog.lookupReference('eventTypeField').setValue(this.eventType);
         } else {
-            dialog.lookupReference('eventTypeField').setValue([Traccar.store.ReportEventTypes.allEvents]);
+            dialog.lookupReference('eventTypeField').setValue([Geontrack.store.ReportEventTypes.allEvents]);
         }
         if (this.chartType !== undefined) {
             dialog.lookupReference('chartTypeField').setValue(this.chartType);
@@ -227,10 +227,10 @@ Ext.define('Traccar.view.ReportController', {
         if (selected.length > 0) {
             report = selected[0];
             this.fireEvent('selectreport', report, true);
-            if (report instanceof Traccar.model.ReportTrip) {
+            if (report instanceof Geontrack.model.ReportTrip) {
                 this.selectTrip(report);
             }
-            if (report instanceof Traccar.model.Event || report instanceof Traccar.model.ReportStop) {
+            if (report instanceof Geontrack.model.Event || report instanceof Geontrack.model.ReportStop) {
                 this.selectPositionRelated(report);
             }
         }
@@ -238,7 +238,7 @@ Ext.define('Traccar.view.ReportController', {
 
     selectReport: function (object) {
         var positionRelated, reportType = this.lookupReference('reportTypeField').getValue();
-        if (object instanceof Traccar.model.Position) {
+        if (object instanceof Geontrack.model.Position) {
             if (reportType === 'route') {
                 this.getGrid().getSelectionModel().select([object], false, true);
                 this.getGrid().getView().focusRow(object);
@@ -336,13 +336,13 @@ Ext.define('Traccar.view.ReportController', {
                     yField: this.chartType,
                     xField: 'fixTime',
                     highlightCfg: {
-                        scaling: Traccar.Style.chartMarkerHighlightScaling
+                        scaling: Geontrack.Style.chartMarkerHighlightScaling
                     },
-                    colors: [Traccar.app.getReportColor(deviceIds[i])],
+                    colors: [Geontrack.app.getReportColor(deviceIds[i])],
                     marker: {
                         type: 'circle',
-                        radius: Traccar.Style.chartMarkerRadius,
-                        fill: Traccar.app.getReportColor(deviceIds[i])
+                        radius: Geontrack.Style.chartMarkerRadius,
+                        fill: Geontrack.app.getReportColor(deviceIds[i])
                     }
                 });
             }
@@ -364,8 +364,8 @@ Ext.define('Traccar.view.ReportController', {
                     Ext.getStore('ReportEvents').add(records);
                     if (records.length > 0) {
                         if (!records[0].get('positionId')) {
-                            if (Traccar.app.isMobile()) {
-                                Traccar.app.showReports(true);
+                            if (Geontrack.app.isMobile()) {
+                                Geontrack.app.showReports(true);
                             } else {
                                 this.getView().expand();
                             }
@@ -382,7 +382,7 @@ Ext.define('Traccar.view.ReportController', {
         Ext.Ajax.request({
             url: requestUrl,
             method: 'GET',
-            timeout: Traccar.Style.reportTimeout,
+            timeout: Geontrack.Style.reportTimeout,
             params: requestParams,
             headers: {
                 Accept: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
@@ -464,7 +464,7 @@ Ext.define('Traccar.view.ReportController', {
                     this.fireEvent('selectReport', position);
                 },
                 failure: function (response) {
-                    Traccar.app.showError(response);
+                    Geontrack.app.showError(response);
                 }
             });
         }
@@ -473,32 +473,32 @@ Ext.define('Traccar.view.ReportController', {
     routeColumns: [{
         text: Strings.reportDeviceName,
         dataIndex: 'deviceId',
-        renderer: Traccar.AttributeFormatter.getFormatter('deviceId')
+        renderer: Geontrack.AttributeFormatter.getFormatter('deviceId')
     }, {
         text: Strings.positionValid,
         dataIndex: 'valid',
-        renderer: Traccar.AttributeFormatter.getFormatter('valid')
+        renderer: Geontrack.AttributeFormatter.getFormatter('valid')
     }, {
         text: Strings.positionFixTime,
         dataIndex: 'fixTime',
         xtype: 'datecolumn',
-        renderer: Traccar.AttributeFormatter.getFormatter('fixTime')
+        renderer: Geontrack.AttributeFormatter.getFormatter('fixTime')
     }, {
         text: Strings.positionLatitude,
         dataIndex: 'latitude',
-        renderer: Traccar.AttributeFormatter.getFormatter('latitude')
+        renderer: Geontrack.AttributeFormatter.getFormatter('latitude')
     }, {
         text: Strings.positionLongitude,
         dataIndex: 'longitude',
-        renderer: Traccar.AttributeFormatter.getFormatter('longitude')
+        renderer: Geontrack.AttributeFormatter.getFormatter('longitude')
     }, {
         text: Strings.positionAltitude,
         dataIndex: 'altitude',
-        renderer: Traccar.AttributeFormatter.getFormatter('altitude')
+        renderer: Geontrack.AttributeFormatter.getFormatter('altitude')
     }, {
         text: Strings.positionSpeed,
         dataIndex: 'speed',
-        renderer: Traccar.AttributeFormatter.getFormatter('speed')
+        renderer: Geontrack.AttributeFormatter.getFormatter('speed')
     }, {
         text: Strings.positionAddress,
         dataIndex: 'address',
@@ -508,7 +508,7 @@ Ext.define('Traccar.view.ReportController', {
                     record.getId() + ')" >' +
                     Strings.sharedShowAddress + '</a>';
             }
-            return Traccar.AttributeFormatter.getFormatter('address')(value);
+            return Geontrack.AttributeFormatter.getFormatter('address')(value);
         }
     }],
 
@@ -516,155 +516,155 @@ Ext.define('Traccar.view.ReportController', {
         text: Strings.positionFixTime,
         dataIndex: 'serverTime',
         xtype: 'datecolumn',
-        renderer: Traccar.AttributeFormatter.getFormatter('serverTime')
+        renderer: Geontrack.AttributeFormatter.getFormatter('serverTime')
     }, {
         text: Strings.reportDeviceName,
         dataIndex: 'deviceId',
-        renderer: Traccar.AttributeFormatter.getFormatter('deviceId')
+        renderer: Geontrack.AttributeFormatter.getFormatter('deviceId')
     }, {
         text: Strings.sharedType,
         dataIndex: 'type',
         renderer: function (value) {
-            return Traccar.app.getEventString(value);
+            return Geontrack.app.getEventString(value);
         }
     }, {
         text: Strings.sharedGeofence,
         dataIndex: 'geofenceId',
-        renderer: Traccar.AttributeFormatter.getFormatter('geofenceId')
+        renderer: Geontrack.AttributeFormatter.getFormatter('geofenceId')
     }, {
         text: Strings.sharedMaintenance,
         dataIndex: 'maintenanceId',
-        renderer: Traccar.AttributeFormatter.getFormatter('maintenanceId')
+        renderer: Geontrack.AttributeFormatter.getFormatter('maintenanceId')
     }],
 
     summaryColumns: [{
         text: Strings.reportDeviceName,
         dataIndex: 'deviceId',
-        renderer: Traccar.AttributeFormatter.getFormatter('deviceId')
+        renderer: Geontrack.AttributeFormatter.getFormatter('deviceId')
     }, {
         text: Strings.reportStartDate,
         dataIndex: 'startTime',
         xtype: 'datecolumn',
-        renderer: Traccar.AttributeFormatter.dateFormatter
+        renderer: Geontrack.AttributeFormatter.dateFormatter
     }, {
         text: Strings.sharedDistance,
         dataIndex: 'distance',
-        renderer: Traccar.AttributeFormatter.getFormatter('distance')
+        renderer: Geontrack.AttributeFormatter.getFormatter('distance')
     }, {
         text: Strings.reportStartOdometer,
         dataIndex: 'startOdometer',
-        renderer: Traccar.AttributeFormatter.getFormatter('distance')
+        renderer: Geontrack.AttributeFormatter.getFormatter('distance')
     }, {
         text: Strings.reportEndOdometer,
         dataIndex: 'endOdometer',
-        renderer: Traccar.AttributeFormatter.getFormatter('distance')
+        renderer: Geontrack.AttributeFormatter.getFormatter('distance')
     }, {
         text: Strings.reportAverageSpeed,
         dataIndex: 'averageSpeed',
-        renderer: Traccar.AttributeFormatter.getFormatter('speed')
+        renderer: Geontrack.AttributeFormatter.getFormatter('speed')
     }, {
         text: Strings.reportMaximumSpeed,
         dataIndex: 'maxSpeed',
-        renderer: Traccar.AttributeFormatter.getFormatter('speed')
+        renderer: Geontrack.AttributeFormatter.getFormatter('speed')
     }, {
         text: Strings.reportEngineHours,
         dataIndex: 'engineHours',
-        renderer: Traccar.AttributeFormatter.getFormatter('duration')
+        renderer: Geontrack.AttributeFormatter.getFormatter('duration')
     }, {
         text: Strings.reportSpentFuel,
         dataIndex: 'spentFuel',
-        renderer: Traccar.AttributeFormatter.getFormatter('spentFuel')
+        renderer: Geontrack.AttributeFormatter.getFormatter('spentFuel')
     }],
 
     tripsColumns: [{
         text: Strings.reportDeviceName,
         dataIndex: 'deviceId',
-        renderer: Traccar.AttributeFormatter.getFormatter('deviceId')
+        renderer: Geontrack.AttributeFormatter.getFormatter('deviceId')
     }, {
         text: Strings.reportStartTime,
         dataIndex: 'startTime',
         xtype: 'datecolumn',
-        renderer: Traccar.AttributeFormatter.getFormatter('startTime')
+        renderer: Geontrack.AttributeFormatter.getFormatter('startTime')
     }, {
         text: Strings.reportStartOdometer,
         dataIndex: 'startOdometer',
-        renderer: Traccar.AttributeFormatter.getFormatter('distance')
+        renderer: Geontrack.AttributeFormatter.getFormatter('distance')
     }, {
         text: Strings.reportStartAddress,
         dataIndex: 'startAddress',
-        renderer: Traccar.AttributeFormatter.getFormatter('address')
+        renderer: Geontrack.AttributeFormatter.getFormatter('address')
     }, {
         text: Strings.reportEndTime,
         dataIndex: 'endTime',
         xtype: 'datecolumn',
-        renderer: Traccar.AttributeFormatter.getFormatter('endTime')
+        renderer: Geontrack.AttributeFormatter.getFormatter('endTime')
     }, {
         text: Strings.reportEndOdometer,
         dataIndex: 'endOdometer',
-        renderer: Traccar.AttributeFormatter.getFormatter('distance')
+        renderer: Geontrack.AttributeFormatter.getFormatter('distance')
     }, {
         text: Strings.reportEndAddress,
         dataIndex: 'endAddress',
-        renderer: Traccar.AttributeFormatter.getFormatter('address')
+        renderer: Geontrack.AttributeFormatter.getFormatter('address')
     }, {
         text: Strings.sharedDistance,
         dataIndex: 'distance',
-        renderer: Traccar.AttributeFormatter.getFormatter('distance')
+        renderer: Geontrack.AttributeFormatter.getFormatter('distance')
     }, {
         text: Strings.reportAverageSpeed,
         dataIndex: 'averageSpeed',
-        renderer: Traccar.AttributeFormatter.getFormatter('speed')
+        renderer: Geontrack.AttributeFormatter.getFormatter('speed')
     }, {
         text: Strings.reportMaximumSpeed,
         dataIndex: 'maxSpeed',
-        renderer: Traccar.AttributeFormatter.getFormatter('speed')
+        renderer: Geontrack.AttributeFormatter.getFormatter('speed')
     }, {
         text: Strings.reportDuration,
         dataIndex: 'duration',
-        renderer: Traccar.AttributeFormatter.getFormatter('duration')
+        renderer: Geontrack.AttributeFormatter.getFormatter('duration')
     }, {
         text: Strings.reportSpentFuel,
         dataIndex: 'spentFuel',
-        renderer: Traccar.AttributeFormatter.getFormatter('spentFuel')
+        renderer: Geontrack.AttributeFormatter.getFormatter('spentFuel')
     }, {
         text: Strings.sharedDriver,
         dataIndex: 'driverUniqueId',
-        renderer: Traccar.AttributeFormatter.getFormatter('driverUniqueId')
+        renderer: Geontrack.AttributeFormatter.getFormatter('driverUniqueId')
     }],
 
     stopsColumns: [{
         text: Strings.reportDeviceName,
         dataIndex: 'deviceId',
-        renderer: Traccar.AttributeFormatter.getFormatter('deviceId')
+        renderer: Geontrack.AttributeFormatter.getFormatter('deviceId')
     }, {
         text: Strings.reportStartTime,
         dataIndex: 'startTime',
         xtype: 'datecolumn',
-        renderer: Traccar.AttributeFormatter.getFormatter('startTime')
+        renderer: Geontrack.AttributeFormatter.getFormatter('startTime')
     }, {
         text: Strings.positionOdometer,
         dataIndex: 'startOdometer',
-        renderer: Traccar.AttributeFormatter.getFormatter('distance')
+        renderer: Geontrack.AttributeFormatter.getFormatter('distance')
     }, {
         text: Strings.positionAddress,
         dataIndex: 'address',
-        renderer: Traccar.AttributeFormatter.getFormatter('address')
+        renderer: Geontrack.AttributeFormatter.getFormatter('address')
     }, {
         text: Strings.reportEndTime,
         dataIndex: 'endTime',
         xtype: 'datecolumn',
-        renderer: Traccar.AttributeFormatter.getFormatter('endTime')
+        renderer: Geontrack.AttributeFormatter.getFormatter('endTime')
     }, {
         text: Strings.reportDuration,
         dataIndex: 'duration',
-        renderer: Traccar.AttributeFormatter.getFormatter('duration')
+        renderer: Geontrack.AttributeFormatter.getFormatter('duration')
     }, {
         text: Strings.reportEngineHours,
         dataIndex: 'engineHours',
-        renderer: Traccar.AttributeFormatter.getFormatter('duration')
+        renderer: Geontrack.AttributeFormatter.getFormatter('duration')
     }, {
         text: Strings.reportSpentFuel,
         dataIndex: 'spentFuel',
-        renderer: Traccar.AttributeFormatter.getFormatter('spentFuel')
+        renderer: Geontrack.AttributeFormatter.getFormatter('spentFuel')
     }]
 });

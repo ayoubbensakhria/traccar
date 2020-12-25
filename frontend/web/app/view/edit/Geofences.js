@@ -15,13 +15,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.Geofences', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.edit.Geofences', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'geofencesView',
 
     requires: [
-        'Traccar.view.edit.GeofencesController',
-        'Traccar.view.edit.Toolbar'
+        'Geontrack.view.edit.GeofencesController',
+        'Geontrack.view.edit.Toolbar'
     ],
 
     controller: 'geofences',
@@ -38,7 +38,7 @@ Ext.define('Traccar.view.edit.Geofences', {
     columns: {
         defaults: {
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal
+            minWidth: Geontrack.Style.columnWidthNormal
         },
         items: [{
             text: Strings.sharedName,
@@ -57,7 +57,7 @@ Ext.define('Traccar.view.edit.Geofences', {
                 labelField: 'name',
                 store: 'AllCalendars'
             },
-            renderer: Traccar.AttributeFormatter.getFormatter('calendarId')
+            renderer: Geontrack.AttributeFormatter.getFormatter('calendarId')
         }]
     }
 });

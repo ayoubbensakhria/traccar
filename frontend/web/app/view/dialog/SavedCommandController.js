@@ -15,8 +15,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.SavedCommandController', {
-    extend: 'Traccar.view.dialog.BaseEditController',
+Ext.define('Geontrack.view.dialog.SavedCommandController', {
+    extend: 'Geontrack.view.dialog.BaseEditController',
     alias: 'controller.savedCommand',
 
     defaultFieldConfig: {
@@ -31,7 +31,7 @@ Ext.define('Traccar.view.dialog.SavedCommandController', {
         if (command && command.get('parameters')) {
             parameters = command.get('parameters');
             for (i = 0; i < parameters.length; i++) {
-                parameter = new Traccar.model.KnownAttribute(parameters[i]);
+                parameter = new Geontrack.model.KnownAttribute(parameters[i]);
                 config = Ext.clone(this.defaultFieldConfig);
                 config.key = parameter.get('key');
                 config.fieldLabel = parameter.get('name');

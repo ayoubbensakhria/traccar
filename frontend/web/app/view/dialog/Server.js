@@ -15,13 +15,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.Server', {
-    extend: 'Traccar.view.dialog.BaseEdit',
+Ext.define('Geontrack.view.dialog.Server', {
+    extend: 'Geontrack.view.dialog.BaseEdit',
 
     requires: [
-        'Traccar.view.ClearableComboBox',
-        'Traccar.view.dialog.MapPickerController',
-        'Traccar.view.UnescapedTextField'
+        'Geontrack.view.ClearableComboBox',
+        'Geontrack.view.dialog.MapPickerController',
+        'Geontrack.view.UnescapedTextField'
     ],
 
     controller: 'mapPicker',
@@ -53,13 +53,13 @@ Ext.define('Traccar.view.dialog.Server', {
                 reference: 'latitude',
                 name: 'latitude',
                 fieldLabel: Strings.positionLatitude,
-                decimalPrecision: Traccar.Style.coordinatePrecision
+                decimalPrecision: Geontrack.Style.coordinatePrecision
             }, {
                 xtype: 'numberfield',
                 reference: 'longitude',
                 name: 'longitude',
                 fieldLabel: Strings.positionLongitude,
-                decimalPrecision: Traccar.Style.coordinatePrecision
+                decimalPrecision: Geontrack.Style.coordinatePrecision
             }, {
                 xtype: 'numberfield',
                 reference: 'zoom',

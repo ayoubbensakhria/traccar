@@ -16,16 +16,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.SavedCommandsController', {
-    extend: 'Traccar.view.edit.ToolbarController',
+Ext.define('Geontrack.view.edit.SavedCommandsController', {
+    extend: 'Geontrack.view.edit.ToolbarController',
     alias: 'controller.savedCommands',
 
     requires: [
-        'Traccar.view.dialog.SavedCommand',
-        'Traccar.model.Command'
+        'Geontrack.view.dialog.SavedCommand',
+        'Geontrack.model.Command'
     ],
 
-    objectModel: 'Traccar.model.Command',
-    objectDialog: 'Traccar.view.dialog.SavedCommand',
+    objectModel: 'Geontrack.model.Command',
+    objectDialog: 'Geontrack.view.dialog.SavedCommand',
     removeTitle: Strings.sharedSavedCommand
 });

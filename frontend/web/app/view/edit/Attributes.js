@@ -15,13 +15,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.Attributes', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.edit.Attributes', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'attributesView',
 
     requires: [
-        'Traccar.view.edit.AttributesController',
-        'Traccar.view.edit.Toolbar'
+        'Geontrack.view.edit.AttributesController',
+        'Geontrack.view.edit.Toolbar'
     ],
 
     controller: 'attributes',
@@ -37,7 +37,7 @@ Ext.define('Traccar.view.edit.Attributes', {
     columns: {
         defaults: {
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal
+            minWidth: Geontrack.Style.columnWidthNormal
         },
         items: [{
             text: Strings.sharedName,
@@ -58,7 +58,7 @@ Ext.define('Traccar.view.edit.Attributes', {
                 if (this.attributesStore) {
                     attribute = Ext.getStore(this.attributesStore).getById(record.get('name'));
                 }
-                return Traccar.AttributeFormatter.renderAttribute(value, attribute);
+                return Geontrack.AttributeFormatter.renderAttribute(value, attribute);
             }
         }]
     }

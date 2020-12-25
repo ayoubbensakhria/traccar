@@ -16,12 +16,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.ComputedAttributeController', {
-    extend: 'Traccar.view.dialog.BaseEditController',
+Ext.define('Geontrack.view.dialog.ComputedAttributeController', {
+    extend: 'Geontrack.view.dialog.BaseEditController',
     alias: 'controller.computedAttribute',
 
     requires: [
-        'Traccar.view.dialog.SelectDevice'
+        'Geontrack.view.dialog.SelectDevice'
     ],
 
     onAttributeChange: function (combobox, newValue) {
@@ -36,7 +36,7 @@ Ext.define('Traccar.view.dialog.ComputedAttributeController', {
 
     onCheckClick: function (button) {
         var dialog, form;
-        dialog = Ext.create('Traccar.view.dialog.SelectDevice');
+        dialog = Ext.create('Geontrack.view.dialog.SelectDevice');
         form = button.up('window').down('form');
         form.updateRecord();
         dialog.record = form.getRecord();

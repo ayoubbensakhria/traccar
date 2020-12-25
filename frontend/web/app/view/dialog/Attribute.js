@@ -15,14 +15,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.Attribute', {
-    extend: 'Traccar.view.dialog.Base',
+Ext.define('Geontrack.view.dialog.Attribute', {
+    extend: 'Geontrack.view.dialog.Base',
 
     requires: [
-        'Traccar.view.dialog.AttributeController',
-        'Traccar.view.ColorPicker',
-        'Traccar.view.CustomNumberField',
-        'Traccar.view.UnescapedTextField'
+        'Geontrack.view.dialog.AttributeController',
+        'Geontrack.view.ColorPicker',
+        'Geontrack.view.CustomNumberField',
+        'Geontrack.view.UnescapedTextField'
     ],
 
     controller: 'attribute',

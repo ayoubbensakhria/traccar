@@ -15,17 +15,17 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.UserController', {
-    extend: 'Traccar.view.dialog.MapPickerController',
+Ext.define('Geontrack.view.dialog.UserController', {
+    extend: 'Geontrack.view.dialog.MapPickerController',
     alias: 'controller.user',
 
     init: function () {
-        if (Traccar.app.getUser().get('administrator')) {
+        if (Geontrack.app.getUser().get('administrator')) {
             this.lookupReference('adminField').setDisabled(false);
             this.lookupReference('deviceLimitField').setDisabled(false);
             this.lookupReference('userLimitField').setDisabled(false);
         }
-        if (Traccar.app.getUser().get('administrator') || !this.getView().selfEdit) {
+        if (Geontrack.app.getUser().get('administrator') || !this.getView().selfEdit) {
             this.lookupReference('readonlyField').setDisabled(false);
             this.lookupReference('disabledField').setDisabled(false);
             this.lookupReference('expirationTimeField').setDisabled(false);
@@ -51,7 +51,7 @@ Ext.define('Traccar.view.dialog.UserController', {
             url: 'api/notifications/test',
             method: 'POST',
             failure: function (response) {
-                Traccar.app.showError(response);
+                Geontrack.app.showError(response);
             }
         });
     },
@@ -61,7 +61,7 @@ Ext.define('Traccar.view.dialog.UserController', {
         dialog = button.up('window').down('form');
         dialog.updateRecord();
         record = dialog.getRecord();
-        if (record === Traccar.app.getUser()) {
+        if (record === Geontrack.app.getUser()) {
             record.save();
         } else {
             store = Ext.getStore('Users');
@@ -71,7 +71,7 @@ Ext.define('Traccar.view.dialog.UserController', {
             store.sync({
                 failure: function (batch) {
                     store.rejectChanges();
-                    Traccar.app.showError(batch.exceptions[0].getError().response);
+                    Geontrack.app.showError(batch.exceptions[0].getError().response);
                 }
             });
         }

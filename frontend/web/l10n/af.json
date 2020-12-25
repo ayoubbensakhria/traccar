@@ -379,7 +379,7 @@
     "notificatorMail": "Pos",
     "notificatorSms": "SMS",
     "notificatorFirebase": "Firebase",
-    "notificatorTraccar": "Traccar",
+    "notificatorGeontrack": "Geontrack",
     "reportReplay": "Replay",
     "reportRoute": "Roete",
     "reportEvents": "Gebeure",

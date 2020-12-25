@@ -16,13 +16,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.Calendars', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.edit.Calendars', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'calendarsView',
 
     requires: [
-        'Traccar.view.edit.CalendarsController',
-        'Traccar.view.edit.Toolbar'
+        'Geontrack.view.edit.CalendarsController',
+        'Geontrack.view.edit.Toolbar'
     ],
 
     controller: 'calendars',
@@ -39,7 +39,7 @@ Ext.define('Traccar.view.edit.Calendars', {
     columns: {
         defaults: {
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal
+            minWidth: Geontrack.Style.columnWidthNormal
         },
         items: [{
             text: Strings.sharedName,

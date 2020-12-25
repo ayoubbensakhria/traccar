@@ -15,9 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.store.PositionAttributes', {
+Ext.define('Geontrack.store.PositionAttributes', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.KnownAttribute',
+    model: 'Geontrack.model.KnownAttribute',
     proxy: 'memory',
 
     data: [{

@@ -15,14 +15,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.Groups', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.edit.Groups', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'groupsView',
 
     requires: [
-        'Traccar.AttributeFormatter',
-        'Traccar.view.edit.GroupsController',
-        'Traccar.view.edit.Toolbar'
+        'Geontrack.AttributeFormatter',
+        'Geontrack.view.edit.GroupsController',
+        'Geontrack.view.edit.Toolbar'
     ],
 
     controller: 'groups',
@@ -88,7 +88,7 @@ Ext.define('Traccar.view.edit.Groups', {
     columns: {
         defaults: {
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal
+            minWidth: Geontrack.Style.columnWidthNormal
         },
         items: [{
             text: Strings.sharedName,
@@ -103,7 +103,7 @@ Ext.define('Traccar.view.edit.Groups', {
                 labelField: 'name',
                 store: 'AllGroups'
             },
-            renderer: Traccar.AttributeFormatter.getFormatter('groupId')
+            renderer: Geontrack.AttributeFormatter.getFormatter('groupId')
         }]
     }
 });

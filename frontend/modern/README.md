@@ -1,10 +1,10 @@
-This is a new version of the Traccar web app. It is still in a very early stage of development.
+This is a new version of the Geontrack web app. It is still in a very early stage of development.
 
 It uses [React](https://reactjs.org/), [Material UI](https://material-ui.com/) and [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/). Feedback and contributions are welcome.
 
 To run the project in development mode:
 
-- Make sure you have Traccar backend running.
+- Make sure you have Geontrack backend running.
 - Install dependencies using `npm install` command
 - Run development server using `npm start` command
 

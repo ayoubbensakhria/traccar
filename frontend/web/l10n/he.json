@@ -379,7 +379,7 @@
     "notificatorMail": "מייל",
     "notificatorSms": "סמס",
     "notificatorFirebase": "Firebase",
-    "notificatorTraccar": "Traccar",
+    "notificatorGeontrack": "Geontrack",
     "reportReplay": "Replay",
     "reportRoute": "מסלול",
     "reportEvents": "אירועים",

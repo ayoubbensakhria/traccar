@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.EventsController', {
+Ext.define('Geontrack.view.EventsController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.events',
 
@@ -43,9 +43,9 @@ Ext.define('Traccar.view.EventsController', {
         var self = this;
         setInterval(function () {
             self.getView().getView().refresh();
-        }, Traccar.Style.refreshPeriod);
+        }, Geontrack.Style.refreshPeriod);
 
-        if (Traccar.app.isMobile()) {
+        if (Geontrack.app.isMobile()) {
             this.lookupReference('hideEventsButton').setHidden(false);
         }
     },
@@ -80,7 +80,7 @@ Ext.define('Traccar.view.EventsController', {
     },
 
     onHideEvents: function () {
-        Traccar.app.showEvents(false);
+        Geontrack.app.showEvents(false);
     },
 
 

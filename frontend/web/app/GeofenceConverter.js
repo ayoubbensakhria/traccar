@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.GeofenceConverter', {
+Ext.define('Geontrack.GeofenceConverter', {
     singleton: true,
 
     wktToGeometry: function (mapView, wkt) {

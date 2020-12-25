@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.DeviceAccumulatorsController', {
+Ext.define('Geontrack.view.dialog.DeviceAccumulatorsController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.deviceAccumulators',
 
@@ -39,7 +39,7 @@ Ext.define('Traccar.view.dialog.DeviceAccumulatorsController', {
             jsonData: Ext.util.JSON.encode(data),
             callback: function (options, success, response) {
                 if (!success) {
-                    Traccar.app.showError(response);
+                    Geontrack.app.showError(response);
                 }
             }
         });

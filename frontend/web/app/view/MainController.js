@@ -15,12 +15,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.view.MainController', {
+Ext.define('Geontrack.view.MainController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.mainController',
 
     init: function () {
-        this.lookupReference('reportView').setHidden(Traccar.app.getBooleanAttributePreference('ui.disableReport'));
-        this.lookupReference('eventsView').setHidden(Traccar.app.getBooleanAttributePreference('ui.disableEvents'));
+        this.lookupReference('reportView').setHidden(Geontrack.app.getBooleanAttributePreference('ui.disableReport'));
+        this.lookupReference('eventsView').setHidden(Geontrack.app.getBooleanAttributePreference('ui.disableEvents'));
     }
 });

@@ -15,12 +15,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.State', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.State', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'stateView',
 
     requires: [
-        'Traccar.view.StateController'
+        'Geontrack.view.StateController'
     ],
 
     controller: 'state',
@@ -50,7 +50,7 @@ Ext.define('Traccar.view.State', {
 
     columns: {
         defaults: {
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             flex: 1
         },
         items: [{

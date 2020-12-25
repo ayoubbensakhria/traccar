@@ -16,8 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.CalendarController', {
-    extend: 'Traccar.view.dialog.BaseEditController',
+Ext.define('Geontrack.view.dialog.CalendarController', {
+    extend: 'Geontrack.view.dialog.BaseEditController',
     alias: 'controller.calendar',
 
     onFileChange: function (fileField) {
@@ -29,7 +29,7 @@ Ext.define('Traccar.view.dialog.CalendarController', {
                     event.target.result.substr(event.target.result.indexOf(',') + 1));
             };
             reader.onerror = function (event) {
-                Traccar.app.showError(event.target.error);
+                Geontrack.app.showError(event.target.error);
             };
             reader.readAsDataURL(fileField.fileInputEl.dom.files[0]);
         }

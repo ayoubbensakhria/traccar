@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.AttributeController', {
+Ext.define('Geontrack.view.dialog.AttributeController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.attribute',
 
@@ -32,7 +32,7 @@ Ext.define('Traccar.view.dialog.AttributeController', {
             store.sync({
                 failure: function (batch) {
                     store.rejectChanges();
-                    Traccar.app.showError(batch.exceptions[0].getError().response);
+                    Geontrack.app.showError(batch.exceptions[0].getError().response);
                 }
             });
         } else {

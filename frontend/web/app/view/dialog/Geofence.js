@@ -15,13 +15,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.Geofence', {
-    extend: 'Traccar.view.dialog.BaseEdit',
+Ext.define('Geontrack.view.dialog.Geofence', {
+    extend: 'Geontrack.view.dialog.BaseEdit',
 
     requires: [
-        'Traccar.view.ClearableComboBox',
-        'Traccar.view.dialog.GeofenceController',
-        'Traccar.view.UnescapedTextField'
+        'Geontrack.view.ClearableComboBox',
+        'Geontrack.view.dialog.GeofenceController',
+        'Geontrack.view.UnescapedTextField'
     ],
 
     controller: 'geofence',

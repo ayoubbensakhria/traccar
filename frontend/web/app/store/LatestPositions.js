@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.LatestPositions', {
+Ext.define('Geontrack.store.LatestPositions', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.Position'
+    model: 'Geontrack.model.Position'
 });

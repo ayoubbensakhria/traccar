@@ -15,9 +15,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.Attributes', {
+Ext.define('Geontrack.store.Attributes', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.Attribute',
+    model: 'Geontrack.model.Attribute',
 
     sorters: [{
         property: 'priority'

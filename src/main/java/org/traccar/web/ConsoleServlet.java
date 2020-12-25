@@ -38,7 +38,7 @@ public class ConsoleServlet extends WebServlet {
             field.setAccessible(true);
             org.h2.server.web.WebServer server = (org.h2.server.web.WebServer) field.get(this);
 
-            ConnectionInfo connectionInfo = new ConnectionInfo("Traccar|"
+            ConnectionInfo connectionInfo = new ConnectionInfo("Geontrack|"
                     + Context.getConfig().getString("database.driver") + "|"
                     + Context.getConfig().getString("database.url") + "|"
                     + Context.getConfig().getString("database.user"));

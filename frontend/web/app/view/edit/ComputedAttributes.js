@@ -16,13 +16,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.ComputedAttributes', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.edit.ComputedAttributes', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'computedAttributesView',
 
     requires: [
-        'Traccar.view.edit.ComputedAttributesController',
-        'Traccar.view.edit.Toolbar'
+        'Geontrack.view.edit.ComputedAttributesController',
+        'Geontrack.view.edit.Toolbar'
     ],
 
     controller: 'computedAttributes',
@@ -39,7 +39,7 @@ Ext.define('Traccar.view.edit.ComputedAttributes', {
     columns: {
         defaults: {
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal
+            minWidth: Geontrack.Style.columnWidthNormal
         },
         items: [{
             text: Strings.sharedDescription,

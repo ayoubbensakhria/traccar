@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.ReportEventTypes', {
+Ext.define('Geontrack.store.ReportEventTypes', {
     extend: 'Ext.data.Store',
     fields: ['type', 'name'],
 

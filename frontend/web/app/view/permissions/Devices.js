@@ -15,12 +15,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.permissions.Devices', {
-    extend: 'Traccar.view.permissions.Base',
+Ext.define('Geontrack.view.permissions.Devices', {
+    extend: 'Geontrack.view.permissions.Base',
     xtype: 'linkDevicesView',
 
     requires: [
-        'Traccar.AttributeFormatter'
+        'Geontrack.AttributeFormatter'
     ],
 
     columns: {
@@ -28,55 +28,55 @@ Ext.define('Traccar.view.permissions.Devices', {
             text: Strings.sharedName,
             dataIndex: 'name',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: 'string'
         }, {
             text: Strings.deviceIdentifier,
             dataIndex: 'uniqueId',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: 'string'
         }, {
             text: Strings.sharedPhone,
             dataIndex: 'phone',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             hidden: true,
             filter: 'string'
         }, {
             text: Strings.deviceModel,
             dataIndex: 'model',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             hidden: true,
             filter: 'string'
         }, {
             text: Strings.deviceContact,
             dataIndex: 'contact',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             hidden: true,
             filter: 'string'
         }, {
             text: Strings.sharedDisabled,
             dataIndex: 'disabled',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
-            renderer: Traccar.AttributeFormatter.getFormatter('disabled'),
+            minWidth: Geontrack.Style.columnWidthNormal,
+            renderer: Geontrack.AttributeFormatter.getFormatter('disabled'),
             hidden: true,
             filter: 'boolean'
         }, {
             text: Strings.groupDialog,
             dataIndex: 'groupId',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             hidden: true,
             filter: {
                 type: 'list',
                 labelField: 'name',
                 store: 'AllGroups'
             },
-            renderer: Traccar.AttributeFormatter.getFormatter('groupId')
+            renderer: Geontrack.AttributeFormatter.getFormatter('groupId')
         }]
     }
 });

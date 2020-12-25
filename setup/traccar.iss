@@ -1,7 +1,7 @@
 [Setup]
-AppName=Traccar
+AppName=Geontrack
 AppVersion=4.11
-DefaultDirName={pf}\Traccar
+DefaultDirName={pf}\Geontrack
 OutputBaseFilename=traccar-setup
 ArchitecturesInstallIn64BitMode=x64
 

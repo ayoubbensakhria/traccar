@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.VolumeUnits', {
+Ext.define('Geontrack.store.VolumeUnits', {
     extend: 'Ext.data.Store',
     fields: ['key', 'name', 'fullName', 'factor'],
 

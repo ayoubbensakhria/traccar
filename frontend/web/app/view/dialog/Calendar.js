@@ -16,12 +16,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.Calendar', {
-    extend: 'Traccar.view.dialog.BaseEdit',
+Ext.define('Geontrack.view.dialog.Calendar', {
+    extend: 'Geontrack.view.dialog.BaseEdit',
 
     requires: [
-        'Traccar.view.dialog.CalendarController',
-        'Traccar.view.UnescapedTextField'
+        'Geontrack.view.dialog.CalendarController',
+        'Geontrack.view.UnescapedTextField'
     ],
 
     controller: 'calendar',

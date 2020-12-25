@@ -16,11 +16,11 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.DeviceAccumulators', {
-    extend: 'Traccar.view.dialog.Base',
+Ext.define('Geontrack.view.dialog.DeviceAccumulators', {
+    extend: 'Geontrack.view.dialog.Base',
 
     requires: [
-        'Traccar.view.dialog.DeviceAccumulatorsController'
+        'Geontrack.view.dialog.DeviceAccumulatorsController'
     ],
 
     controller: 'deviceAccumulators',

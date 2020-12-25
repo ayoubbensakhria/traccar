@@ -15,16 +15,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.GeofencesController', {
-    extend: 'Traccar.view.edit.ToolbarController',
+Ext.define('Geontrack.view.edit.GeofencesController', {
+    extend: 'Geontrack.view.edit.ToolbarController',
     alias: 'controller.geofences',
 
     requires: [
-        'Traccar.view.dialog.Geofence',
-        'Traccar.model.Geofence'
+        'Geontrack.view.dialog.Geofence',
+        'Geontrack.model.Geofence'
     ],
 
-    objectModel: 'Traccar.model.Geofence',
-    objectDialog: 'Traccar.view.dialog.Geofence',
+    objectModel: 'Geontrack.model.Geofence',
+    objectDialog: 'Geontrack.view.dialog.Geofence',
     removeTitle: Strings.sharedGeofence
 });

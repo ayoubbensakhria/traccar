@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.view.ClearableComboBox', {
+Ext.define('Geontrack.view.ClearableComboBox', {
     extend: 'Ext.form.field.ComboBox',
     xtype: 'clearableComboBox',
 

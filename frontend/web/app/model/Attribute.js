@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.model.Attribute', {
+Ext.define('Geontrack.model.Attribute', {
     extend: 'Ext.data.Model',
 
     fields: [{

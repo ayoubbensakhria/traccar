@@ -15,12 +15,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.permissions.Groups', {
-    extend: 'Traccar.view.permissions.Base',
+Ext.define('Geontrack.view.permissions.Groups', {
+    extend: 'Geontrack.view.permissions.Base',
     xtype: 'linkGroupsView',
 
     requires: [
-        'Traccar.AttributeFormatter'
+        'Geontrack.AttributeFormatter'
     ],
 
     columns: {
@@ -28,20 +28,20 @@ Ext.define('Traccar.view.permissions.Groups', {
             text: Strings.sharedName,
             dataIndex: 'name',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: 'string'
         }, {
             text: Strings.groupDialog,
             dataIndex: 'groupId',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             hidden: true,
             filter: {
                 type: 'list',
                 labelField: 'name',
                 store: 'AllGroups'
             },
-            renderer: Traccar.AttributeFormatter.getFormatter('groupId')
+            renderer: Geontrack.AttributeFormatter.getFormatter('groupId')
         }]
     }
 });

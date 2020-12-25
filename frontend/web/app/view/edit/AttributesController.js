@@ -15,21 +15,21 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.AttributesController', {
-    extend: 'Traccar.view.edit.ToolbarController',
+Ext.define('Geontrack.view.edit.AttributesController', {
+    extend: 'Geontrack.view.edit.ToolbarController',
     alias: 'controller.attributes',
 
     requires: [
-        'Traccar.view.dialog.Attribute',
-        'Traccar.store.Attributes',
-        'Traccar.model.Attribute'
+        'Geontrack.view.dialog.Attribute',
+        'Geontrack.store.Attributes',
+        'Geontrack.model.Attribute'
     ],
 
     removeTitle: Strings.stateName,
 
     init: function () {
         var store, propertyName, i = 0, attributes;
-        store = Ext.create('Traccar.store.Attributes');
+        store = Ext.create('Geontrack.store.Attributes');
         store.setProxy(Ext.create('Ext.data.proxy.Memory'));
         if (typeof this.getView().record.get('attributes') === 'undefined') {
             this.getView().record.set('attributes', {});
@@ -37,7 +37,7 @@ Ext.define('Traccar.view.edit.AttributesController', {
         attributes = this.getView().record.get('attributes');
         for (propertyName in attributes) {
             if (attributes.hasOwnProperty(propertyName)) {
-                store.add(Ext.create('Traccar.model.Attribute', {
+                store.add(Ext.create('Geontrack.model.Attribute', {
                     priority: i++,
                     name: propertyName,
                     value: attributes[propertyName]
@@ -73,15 +73,15 @@ Ext.define('Traccar.view.edit.AttributesController', {
         }, this);
 
         this.getView().setStore(store);
-        if (this.getView().record instanceof Traccar.model.Device) {
+        if (this.getView().record instanceof Geontrack.model.Device) {
             this.getView().attributesStore = 'DeviceAttributes';
-        } else if (this.getView().record instanceof Traccar.model.Geofence) {
+        } else if (this.getView().record instanceof Geontrack.model.Geofence) {
             this.getView().attributesStore = 'GeofenceAttributes';
-        } else if (this.getView().record instanceof Traccar.model.Group) {
+        } else if (this.getView().record instanceof Geontrack.model.Group) {
             this.getView().attributesStore = 'GroupAttributes';
-        } else if (this.getView().record instanceof Traccar.model.Server) {
+        } else if (this.getView().record instanceof Geontrack.model.Server) {
             this.getView().attributesStore = 'ServerAttributes';
-        } else if (this.getView().record instanceof Traccar.model.User) {
+        } else if (this.getView().record instanceof Geontrack.model.User) {
             this.getView().attributesStore = 'UserAttributes';
         }
     },
@@ -101,7 +101,7 @@ Ext.define('Traccar.view.edit.AttributesController', {
     },
 
     initDialog: function (record) {
-        var nameTextField, dialog = Ext.create('Traccar.view.dialog.Attribute');
+        var nameTextField, dialog = Ext.create('Geontrack.view.dialog.Attribute');
         if (this.getView().attributesStore) {
             this.comboConfig.store = this.getView().attributesStore;
             nameTextField = dialog.lookupReference('nameTextField');
@@ -113,7 +113,7 @@ Ext.define('Traccar.view.edit.AttributesController', {
     },
 
     onAddClick: function () {
-        var objectInstance = Ext.create('Traccar.model.Attribute');
+        var objectInstance = Ext.create('Geontrack.model.Attribute');
         objectInstance.store = this.getView().getStore();
         this.initDialog(objectInstance);
     },

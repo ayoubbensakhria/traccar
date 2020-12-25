@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.AttributeFormatter', {
+Ext.define('Geontrack.AttributeFormatter', {
     singleton: true,
 
     numberFormatterFactory: function (precision, suffix) {
@@ -28,15 +28,15 @@ Ext.define('Traccar.AttributeFormatter', {
     },
 
     coordinateFormatter: function (key, value) {
-        return Ext.getStore('CoordinateFormats').formatValue(key, value, Traccar.app.getPreference('coordinateFormat'));
+        return Ext.getStore('CoordinateFormats').formatValue(key, value, Geontrack.app.getPreference('coordinateFormat'));
     },
 
     speedFormatter: function (value) {
-        return Ext.getStore('SpeedUnits').formatValue(value, Traccar.app.getAttributePreference('speedUnit'));
+        return Ext.getStore('SpeedUnits').formatValue(value, Geontrack.app.getAttributePreference('speedUnit'));
     },
 
     speedConverter: function (value) {
-        return Ext.getStore('SpeedUnits').convertValue(value, Traccar.app.getAttributePreference('speedUnit'));
+        return Ext.getStore('SpeedUnits').convertValue(value, Geontrack.app.getAttributePreference('speedUnit'));
     },
 
     courseFormatter: function (value) {
@@ -45,19 +45,19 @@ Ext.define('Traccar.AttributeFormatter', {
     },
 
     distanceFormatter: function (value) {
-        return Ext.getStore('DistanceUnits').formatValue(value, Traccar.app.getAttributePreference('distanceUnit'));
+        return Ext.getStore('DistanceUnits').formatValue(value, Geontrack.app.getAttributePreference('distanceUnit'));
     },
 
     distanceConverter: function (value) {
-        return Ext.getStore('DistanceUnits').convertValue(value, Traccar.app.getAttributePreference('distanceUnit'));
+        return Ext.getStore('DistanceUnits').convertValue(value, Geontrack.app.getAttributePreference('distanceUnit'));
     },
 
     volumeFormatter: function (value) {
-        return Ext.getStore('VolumeUnits').formatValue(value, Traccar.app.getAttributePreference('volumeUnit'));
+        return Ext.getStore('VolumeUnits').formatValue(value, Geontrack.app.getAttributePreference('volumeUnit'));
     },
 
     volumeConverter: function (value) {
-        return Ext.getStore('VolumeUnits').convertValue(value, Traccar.app.getAttributePreference('volumeUnit'));
+        return Ext.getStore('VolumeUnits').convertValue(value, Geontrack.app.getAttributePreference('volumeUnit'));
     },
 
     hoursFormatter: function (value) {
@@ -177,21 +177,21 @@ Ext.define('Traccar.AttributeFormatter', {
 
     defaultFormatter: function (value) {
         if (typeof value === 'number') {
-            return Number(value.toFixed(Traccar.Style.numberPrecision));
+            return Number(value.toFixed(Geontrack.Style.numberPrecision));
         } else if (typeof value === 'boolean') {
             return value ? Ext.Msg.buttonText.yes : Ext.Msg.buttonText.no;
         } else if (value instanceof Date) {
-            if (Traccar.app.getPreference('twelveHourFormat', false)) {
-                return Ext.Date.format(value, Traccar.Style.dateTimeFormat12);
+            if (Geontrack.app.getPreference('twelveHourFormat', false)) {
+                return Ext.Date.format(value, Geontrack.Style.dateTimeFormat12);
             } else {
-                return Ext.Date.format(value, Traccar.Style.dateTimeFormat24);
+                return Ext.Date.format(value, Geontrack.Style.dateTimeFormat24);
             }
         }
         return value;
     },
 
     dateFormatter: function (value) {
-        return Ext.Date.format(value, Traccar.Style.dateFormat);
+        return Ext.Date.format(value, Geontrack.Style.dateFormat);
     },
 
     getFormatter: function (key) {
@@ -262,17 +262,17 @@ Ext.define('Traccar.AttributeFormatter', {
             case 'driverUniqueId':
                 return this.driverUniqueIdFormatter;
             case 'voltage':
-                return this.numberFormatterFactory(Traccar.Style.numberPrecision, Strings.sharedVoltAbbreviation);
+                return this.numberFormatterFactory(Geontrack.Style.numberPrecision, Strings.sharedVoltAbbreviation);
             case 'percentage':
-                return this.numberFormatterFactory(Traccar.Style.numberPrecision, '&#37;');
+                return this.numberFormatterFactory(Geontrack.Style.numberPrecision, '&#37;');
             case 'temperature':
-                return this.numberFormatterFactory(Traccar.Style.numberPrecision, '&deg;C');
+                return this.numberFormatterFactory(Geontrack.Style.numberPrecision, '&deg;C');
             case 'volume':
                 return this.volumeFormatter;
             case 'hours':
                 return this.hoursFormatter;
             case 'consumption':
-                return this.numberFormatterFactory(Traccar.Style.numberPrecision, Strings.sharedLiterPerHourAbbreviation);
+                return this.numberFormatterFactory(Geontrack.Style.numberPrecision, Strings.sharedLiterPerHourAbbreviation);
             default:
                 return this.defaultFormatter;
         }
@@ -299,9 +299,9 @@ Ext.define('Traccar.AttributeFormatter', {
 
     renderAttribute: function (value, attribute) {
         if (attribute && attribute.get('dataType') === 'speed') {
-            return Ext.getStore('SpeedUnits').formatValue(value, Traccar.app.getAttributePreference('speedUnit', 'kn'), true);
+            return Ext.getStore('SpeedUnits').formatValue(value, Geontrack.app.getAttributePreference('speedUnit', 'kn'), true);
         } else if (attribute && attribute.get('dataType') === 'distance') {
-            return Ext.getStore('DistanceUnits').formatValue(value, Traccar.app.getAttributePreference('distanceUnit', 'km'), true);
+            return Ext.getStore('DistanceUnits').formatValue(value, Geontrack.app.getAttributePreference('distanceUnit', 'km'), true);
         } else if (attribute && attribute.get('dataType') === 'hours') {
             return Ext.getStore('HoursUnits').formatValue(value, 'h', true);
         } else {

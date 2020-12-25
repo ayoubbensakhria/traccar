@@ -2,8 +2,8 @@
 
 ## Overview
 
-Traccar est un système de suivi GPS open source. Ce dépôt contient un service back-end basé sur Java. Il prend en charge plus de 170 protocoles GPS et plus de 1500 modèles de dispositifs de suivi GPS. Traccar peut être utilisé avec tous les principaux systèmes de base de données SQL. Il fournit également une API REST facile à utiliser
-Other parts of Traccar solution include:
+Geontrack est un système de suivi GPS open source. Ce dépôt contient un service back-end basé sur Java. Il prend en charge plus de 170 protocoles GPS et plus de 1500 modèles de dispositifs de suivi GPS. Geontrack peut être utilisé avec tous les principaux systèmes de base de données SQL. Il fournit également une API REST facile à utiliser
+Other parts of Geontrack solution include:
 
 ## Fonctionnalités
 

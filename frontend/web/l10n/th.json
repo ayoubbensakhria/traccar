@@ -379,7 +379,7 @@
     "notificatorMail": "เมลล์",
     "notificatorSms": "ส่งข้อความ",
     "notificatorFirebase": "Firebase",
-    "notificatorTraccar": "Traccar",
+    "notificatorGeontrack": "Geontrack",
     "reportReplay": "Replay",
     "reportRoute": "เส้นทาง",
     "reportEvents": "เหตุการณ์",

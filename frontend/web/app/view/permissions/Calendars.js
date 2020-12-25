@@ -16,8 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.permissions.Calendars', {
-    extend: 'Traccar.view.permissions.Base',
+Ext.define('Geontrack.view.permissions.Calendars', {
+    extend: 'Geontrack.view.permissions.Base',
     xtype: 'linkCalendarsView',
 
     columns: {
@@ -25,7 +25,7 @@ Ext.define('Traccar.view.permissions.Calendars', {
             text: Strings.sharedName,
             dataIndex: 'name',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: 'string'
         }]
     }

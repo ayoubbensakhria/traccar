@@ -15,9 +15,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.Notifications', {
+Ext.define('Geontrack.store.Notifications', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.Notification',
+    model: 'Geontrack.model.Notification',
 
     proxy: {
         type: 'rest',

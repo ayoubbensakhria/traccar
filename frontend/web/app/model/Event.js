@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.model.Event', {
+Ext.define('Geontrack.model.Event', {
     extend: 'Ext.data.Model',
     identifier: 'negative',
 
@@ -56,9 +56,9 @@ Ext.define('Traccar.model.Event', {
                 text = Strings.eventTextMessage + ': ' + rec.get('attributes')['message'];
             } else if (rec.get('type') === 'driverChanged') {
                 text = Strings.eventDriverChanged + ': ' +
-                    Traccar.AttributeFormatter.driverUniqueIdFormatter(rec.get('attributes')['driverUniqueId']);
+                    Geontrack.AttributeFormatter.driverUniqueIdFormatter(rec.get('attributes')['driverUniqueId']);
             } else {
-                text = Traccar.app.getEventString(rec.get('type'));
+                text = Geontrack.app.getEventString(rec.get('type'));
             }
             if (rec.get('geofenceId')) {
                 geofence = Ext.getStore('Geofences').getById(rec.get('geofenceId'));

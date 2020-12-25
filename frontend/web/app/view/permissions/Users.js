@@ -16,8 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.permissions.Users', {
-    extend: 'Traccar.view.permissions.Base',
+Ext.define('Geontrack.view.permissions.Users', {
+    extend: 'Geontrack.view.permissions.Base',
     xtype: 'linkUsersView',
 
     columns: {
@@ -25,7 +25,7 @@ Ext.define('Traccar.view.permissions.Users', {
             text: Strings.sharedName,
             dataIndex: 'name',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: 'string'
         }]
     }

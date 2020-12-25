@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.view.edit.ToolbarController', {
+Ext.define('Geontrack.view.edit.ToolbarController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.toolbarController',
 
@@ -54,7 +54,7 @@ Ext.define('Traccar.view.edit.ToolbarController', {
                     store.sync({
                         failure: function (batch) {
                             store.rejectChanges();
-                            Traccar.app.showError(batch.exceptions[0].getError().response);
+                            Geontrack.app.showError(batch.exceptions[0].getError().response);
                         }
                     });
                 }

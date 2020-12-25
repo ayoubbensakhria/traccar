@@ -15,16 +15,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.StateController', {
+Ext.define('Geontrack.view.StateController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.state',
 
     requires: [
-        'Traccar.AttributeFormatter',
-        'Traccar.model.Attribute',
-        'Traccar.model.Position',
-        'Traccar.view.BaseWindow',
-        'Traccar.view.edit.ComputedAttributes'
+        'Geontrack.AttributeFormatter',
+        'Geontrack.model.Attribute',
+        'Geontrack.model.Position',
+        'Geontrack.view.BaseWindow',
+        'Geontrack.view.edit.ComputedAttributes'
     ],
 
     config: {
@@ -54,12 +54,12 @@ Ext.define('Traccar.view.StateController', {
 
     init: function () {
         var i, hideAttributesPreference, attributesList;
-        if (Traccar.app.getUser().get('administrator') ||
-                !Traccar.app.getUser().get('deviceReadonly') && !Traccar.app.getPreference('readonly', false)) {
+        if (Geontrack.app.getUser().get('administrator') ||
+                !Geontrack.app.getUser().get('deviceReadonly') && !Geontrack.app.getPreference('readonly', false)) {
             this.lookupReference('computedAttributesButton').setDisabled(
-                Traccar.app.getBooleanAttributePreference('ui.disableComputedAttributes'));
+                Geontrack.app.getBooleanAttributePreference('ui.disableComputedAttributes'));
         }
-        hideAttributesPreference = Traccar.app.getAttributePreference('ui.hidePositionAttributes');
+        hideAttributesPreference = Geontrack.app.getAttributePreference('ui.hidePositionAttributes');
         this.hideAttributes = {};
         if (hideAttributesPreference) {
             attributesList = hideAttributesPreference.split(/[ ,]+/).filter(Boolean);
@@ -70,7 +70,7 @@ Ext.define('Traccar.view.StateController', {
     },
 
     onComputedAttributesClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedComputedAttributes,
             items: {
                 xtype: 'computedAttributesView'
@@ -125,10 +125,10 @@ Ext.define('Traccar.view.StateController', {
 
         for (key in this.position.data) {
             if (this.position.data.hasOwnProperty(key) && this.keys[key] !== undefined) {
-                store.add(Ext.create('Traccar.model.Attribute', {
+                store.add(Ext.create('Geontrack.model.Attribute', {
                     priority: this.keys[key].priority,
                     name: this.keys[key].name,
-                    value: Traccar.AttributeFormatter.getFormatter(key)(this.position.get(key))
+                    value: Geontrack.AttributeFormatter.getFormatter(key)(this.position.get(key))
                 }));
             }
         }
@@ -140,11 +140,11 @@ Ext.define('Traccar.view.StateController', {
                     this.lookupAttribute = key;
                     name = Ext.getStore('PositionAttributes').getAttributeName(key, true);
                     if (this.position.get('attribute.' + key) !== undefined) {
-                        value = Traccar.AttributeFormatter.getAttributeFormatter(key)(this.position.get('attribute.' + key));
+                        value = Geontrack.AttributeFormatter.getAttributeFormatter(key)(this.position.get('attribute.' + key));
                     } else {
-                        value = Traccar.AttributeFormatter.defaultFormatter(attributes[key]);
+                        value = Geontrack.AttributeFormatter.defaultFormatter(attributes[key]);
                     }
-                    store.add(Ext.create('Traccar.model.Attribute', {
+                    store.add(Ext.create('Geontrack.model.Attribute', {
                         priority: 1024,
                         name: name,
                         attribute: key,
@@ -169,7 +169,7 @@ Ext.define('Traccar.view.StateController', {
     },
 
     selectPosition: function (position) {
-        if (position instanceof Traccar.model.Position) {
+        if (position instanceof Geontrack.model.Position) {
             this.deviceId = null;
             this.position = position;
             this.updatePosition();
@@ -207,7 +207,7 @@ Ext.define('Traccar.view.StateController', {
                     }
                 },
                 failure: function (response) {
-                    Traccar.app.showError(response);
+                    Geontrack.app.showError(response);
                 }
             });
         }

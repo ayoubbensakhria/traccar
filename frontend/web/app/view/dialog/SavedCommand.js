@@ -15,12 +15,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.SavedCommand', {
-    extend: 'Traccar.view.dialog.BaseEdit',
+Ext.define('Geontrack.view.dialog.SavedCommand', {
+    extend: 'Geontrack.view.dialog.BaseEdit',
 
     requires: [
-        'Traccar.view.dialog.SavedCommandController',
-        'Traccar.view.UnescapedTextField'
+        'Geontrack.view.dialog.SavedCommandController',
+        'Geontrack.view.UnescapedTextField'
     ],
 
     controller: 'savedCommand',

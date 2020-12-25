@@ -15,15 +15,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.BaseWindow', {
+Ext.define('Geontrack.view.BaseWindow', {
     extend: 'Ext.window.Window',
 
-    width: Traccar.Style.windowWidth,
-    height: Traccar.Style.windowHeight,
+    width: Geontrack.Style.windowWidth,
+    height: Geontrack.Style.windowHeight,
     layout: 'fit',
 
     initComponent: function () {
-        if (window.innerWidth < Traccar.Style.windowWidth || window.innerHeight < Traccar.Style.windowHeight) {
+        if (window.innerWidth < Geontrack.Style.windowWidth || window.innerHeight < Geontrack.Style.windowHeight) {
             this.maximized = true;
             this.style = 'border-width: 0';
         }

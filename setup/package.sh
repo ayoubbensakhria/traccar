@@ -8,7 +8,7 @@ cd $(dirname $0)
 
 usage () {
   echo "Usage: $0 VERSION [PLATFORM]"
-  echo "Build Traccar installers."
+  echo "Build Geontrack installers."
   echo
   echo "Without PLATFORM provided, builds installers for all platforms."
   echo
@@ -53,8 +53,8 @@ check_requirement () {
 }
 
 info "Checking build requirements for platform: "$PLATFORM
-check_requirement "Traccar server archive" "ls ../target/tracker-server.jar" "Missing traccar archive"
-check_requirement "Traccar web interface" "ls ../traccar-web/tools/minify.sh" "Missing traccar-web sources"
+check_requirement "Geontrack server archive" "ls ../target/tracker-server.jar" "Missing traccar archive"
+check_requirement "Geontrack web interface" "ls ../traccar-web/tools/minify.sh" "Missing traccar-web sources"
 check_requirement "Zip" "which zip" "Missing zip binary"
 check_requirement "Unzip" "which unzip" "Missing unzip binary"
 check_requirement "Ext JS" "ls $EXTJS_PATH" "ExtJS not found in $EXTJS_PATH (https://www.sencha.com/legal/GPL/)"

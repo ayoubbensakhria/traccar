@@ -379,7 +379,7 @@
     "notificatorMail": "e-pasts",
     "notificatorSms": "SMS",
     "notificatorFirebase": "Firebase",
-    "notificatorTraccar": "Traccar",
+    "notificatorGeontrack": "Geontrack",
     "reportReplay": "Replay",
     "reportRoute": "Maršruts",
     "reportEvents": "Notikumi",

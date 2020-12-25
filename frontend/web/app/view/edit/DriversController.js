@@ -16,16 +16,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.DriversController', {
-    extend: 'Traccar.view.edit.ToolbarController',
+Ext.define('Geontrack.view.edit.DriversController', {
+    extend: 'Geontrack.view.edit.ToolbarController',
     alias: 'controller.drivers',
 
     requires: [
-        'Traccar.view.dialog.Driver',
-        'Traccar.model.Driver'
+        'Geontrack.view.dialog.Driver',
+        'Geontrack.model.Driver'
     ],
 
-    objectModel: 'Traccar.model.Driver',
-    objectDialog: 'Traccar.view.dialog.Driver',
+    objectModel: 'Geontrack.model.Driver',
+    objectDialog: 'Geontrack.view.dialog.Driver',
     removeTitle: Strings.sharedDriver
 });

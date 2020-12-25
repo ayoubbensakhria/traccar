@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.DeviceImages', {
+Ext.define('Geontrack.DeviceImages', {
     singleton: true,
 
     getImageSvg: function (color, zoom, angle, category) {
@@ -43,13 +43,13 @@ Ext.define('Traccar.DeviceImages', {
         svg.getElementById(info.get('rotateId')).setAttribute('transform', rotateTransform);
 
         if (zoom) {
-            width *= Traccar.Style.mapScaleSelected;
-            height *= Traccar.Style.mapScaleSelected;
-            scaleTransform = 'scale(' + Traccar.Style.mapScaleSelected + ') ';
+            width *= Geontrack.Style.mapScaleSelected;
+            height *= Geontrack.Style.mapScaleSelected;
+            scaleTransform = 'scale(' + Geontrack.Style.mapScaleSelected + ') ';
         } else {
-            width *= Traccar.Style.mapScaleNormal;
-            height *= Traccar.Style.mapScaleNormal;
-            scaleTransform = 'scale(' + Traccar.Style.mapScaleNormal + ') ';
+            width *= Geontrack.Style.mapScaleNormal;
+            height *= Geontrack.Style.mapScaleNormal;
+            scaleTransform = 'scale(' + Geontrack.Style.mapScaleNormal + ') ';
         }
 
         if (info.get('scaleId') !== info.get('rotateId')) {

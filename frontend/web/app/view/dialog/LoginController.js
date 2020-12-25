@@ -15,17 +15,17 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.LoginController', {
+Ext.define('Geontrack.view.dialog.LoginController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.login',
 
     requires: [
-        'Traccar.view.dialog.Register'
+        'Geontrack.view.dialog.Register'
     ],
 
     init: function () {
         this.lookupReference('registerButton').setDisabled(
-            !Traccar.app.getServer().get('registration'));
+            !Geontrack.app.getServer().get('registration'));
         this.lookupReference('languageField').setValue(Locale.language);
     },
 
@@ -49,14 +49,14 @@ Ext.define('Traccar.view.dialog.LoginController', {
                             Ext.util.Cookies.set('user', user, Ext.Date.add(new Date(), Ext.Date.YEAR, 1));
                             Ext.util.Cookies.set('password', password, Ext.Date.add(new Date(), Ext.Date.YEAR, 1));
                         }
-                        Traccar.app.setUser(Ext.decode(response.responseText));
+                        Geontrack.app.setUser(Ext.decode(response.responseText));
                         this.fireViewEvent('login');
                     } else {
                         this.getView().setVisible(true);
                         if (response.status === 401) {
-                            Traccar.app.showError(Strings.loginFailed);
+                            Geontrack.app.showError(Strings.loginFailed);
                         } else {
-                            Traccar.app.showError(response.responseText);
+                            Geontrack.app.showError(response.responseText);
                         }
                     }
                 }
@@ -112,6 +112,6 @@ Ext.define('Traccar.view.dialog.LoginController', {
     },
 
     onRegisterClick: function () {
-        Ext.create('Traccar.view.dialog.Register').show();
+        Ext.create('Geontrack.view.dialog.Register').show();
     }
 });

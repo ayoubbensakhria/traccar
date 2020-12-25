@@ -16,12 +16,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.ReportConfig', {
-    extend: 'Traccar.view.dialog.Base',
+Ext.define('Geontrack.view.dialog.ReportConfig', {
+    extend: 'Geontrack.view.dialog.Base',
 
     requires: [
-        'Traccar.view.dialog.ReportConfigController',
-        'Traccar.view.CustomTimeField'
+        'Geontrack.view.dialog.ReportConfigController',
+        'Geontrack.view.CustomTimeField'
     ],
 
     controller: 'reportConfig',
@@ -31,7 +31,7 @@ Ext.define('Traccar.view.dialog.ReportConfig', {
         fieldLabel: Strings.reportDevice,
         xtype: 'tagfield',
         reference: 'deviceField',
-        maxWidth: Traccar.Style.formFieldWidth,
+        maxWidth: Geontrack.Style.formFieldWidth,
         store: 'Devices',
         valueField: 'id',
         displayField: 'name',
@@ -40,7 +40,7 @@ Ext.define('Traccar.view.dialog.ReportConfig', {
         fieldLabel: Strings.reportGroup,
         xtype: 'tagfield',
         reference: 'groupField',
-        maxWidth: Traccar.Style.formFieldWidth,
+        maxWidth: Geontrack.Style.formFieldWidth,
         store: 'Groups',
         valueField: 'id',
         displayField: 'name',
@@ -49,7 +49,7 @@ Ext.define('Traccar.view.dialog.ReportConfig', {
         fieldLabel: Strings.reportEventTypes,
         xtype: 'tagfield',
         reference: 'eventTypeField',
-        maxWidth: Traccar.Style.formFieldWidth,
+        maxWidth: Geontrack.Style.formFieldWidth,
         store: 'ReportEventTypes',
         hidden: true,
         valueField: 'type',
@@ -93,8 +93,8 @@ Ext.define('Traccar.view.dialog.ReportConfig', {
         items: [{
             xtype: 'datefield',
             reference: 'fromDateField',
-            startDay: Traccar.Style.weekStartDay,
-            format: Traccar.Style.dateFormat,
+            startDay: Geontrack.Style.weekStartDay,
+            format: Geontrack.Style.dateFormat,
             value: new Date(new Date().getTime() - 30 * 60 * 1000)
         }, {
             xtype: 'customTimeField',
@@ -110,8 +110,8 @@ Ext.define('Traccar.view.dialog.ReportConfig', {
         items: [{
             xtype: 'datefield',
             reference: 'toDateField',
-            startDay: Traccar.Style.weekStartDay,
-            format: Traccar.Style.dateFormat,
+            startDay: Geontrack.Style.weekStartDay,
+            format: Geontrack.Style.dateFormat,
             value: new Date()
         }, {
             xtype: 'customTimeField',

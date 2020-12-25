@@ -15,11 +15,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.view.permissions.Base', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.permissions.Base', {
+    extend: 'Geontrack.view.GridPanel',
 
     requires: [
-        'Traccar.view.permissions.BaseController'
+        'Geontrack.view.permissions.BaseController'
     ],
 
     controller: 'base',

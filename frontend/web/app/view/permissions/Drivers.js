@@ -16,8 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.permissions.Drivers', {
-    extend: 'Traccar.view.permissions.Base',
+Ext.define('Geontrack.view.permissions.Drivers', {
+    extend: 'Geontrack.view.permissions.Base',
     xtype: 'linkDriversView',
 
     columns: {
@@ -25,13 +25,13 @@ Ext.define('Traccar.view.permissions.Drivers', {
             text: Strings.sharedName,
             dataIndex: 'name',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: 'string'
         }, {
             text: Strings.deviceIdentifier,
             dataIndex: 'uniqueId',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: 'string'
         }]
     }

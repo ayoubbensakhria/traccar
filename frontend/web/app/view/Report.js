@@ -15,13 +15,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.Report', {
+Ext.define('Geontrack.view.Report', {
     extend: 'Ext.panel.Panel',
     xtype: 'reportView',
 
     requires: [
-        'Traccar.view.ReportController',
-        'Traccar.view.GridPanel'
+        'Geontrack.view.ReportController',
+        'Geontrack.view.GridPanel'
     ],
 
     controller: 'report',
@@ -84,12 +84,12 @@ Ext.define('Traccar.view.Report', {
         columns: {
             defaults: {
                 flex: 1,
-                minWidth: Traccar.Style.columnWidthNormal
+                minWidth: Geontrack.Style.columnWidthNormal
             },
             items: [
             ]
         },
-        style: Traccar.Style.reportGridStyle
+        style: Geontrack.Style.reportGridStyle
     }, {
         xtype: 'cartesian',
         itemId: 'chart',
@@ -110,6 +110,6 @@ Ext.define('Traccar.view.Report', {
         listeners: {
             itemclick: 'onChartMarkerClick'
         },
-        insetPadding: Traccar.Style.chartPadding
+        insetPadding: Geontrack.Style.chartPadding
     }]
 });

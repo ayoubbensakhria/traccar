@@ -16,8 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.permissions.ComputedAttributes', {
-    extend: 'Traccar.view.permissions.Base',
+Ext.define('Geontrack.view.permissions.ComputedAttributes', {
+    extend: 'Geontrack.view.permissions.Base',
     xtype: 'linkComputedAttributesView',
 
     columns: {
@@ -25,13 +25,13 @@ Ext.define('Traccar.view.permissions.ComputedAttributes', {
             text: Strings.sharedDescription,
             dataIndex: 'description',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: 'string'
         }, {
             text: Strings.sharedAttribute,
             dataIndex: 'attribute',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: {
                 type: 'list',
                 labelField: 'name',

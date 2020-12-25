@@ -16,16 +16,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.CalendarsController', {
-    extend: 'Traccar.view.edit.ToolbarController',
+Ext.define('Geontrack.view.edit.CalendarsController', {
+    extend: 'Geontrack.view.edit.ToolbarController',
     alias: 'controller.calendars',
 
     requires: [
-        'Traccar.view.dialog.Calendar',
-        'Traccar.model.Calendar'
+        'Geontrack.view.dialog.Calendar',
+        'Geontrack.model.Calendar'
     ],
 
-    objectModel: 'Traccar.model.Calendar',
-    objectDialog: 'Traccar.view.dialog.Calendar',
+    objectModel: 'Geontrack.model.Calendar',
+    objectDialog: 'Geontrack.view.dialog.Calendar',
     removeTitle: Strings.sharedCalendar
 });

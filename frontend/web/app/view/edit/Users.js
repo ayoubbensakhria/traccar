@@ -16,13 +16,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.Users', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.edit.Users', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'usersView',
 
     requires: [
-        'Traccar.view.edit.UsersController',
-        'Traccar.view.edit.Toolbar'
+        'Geontrack.view.edit.UsersController',
+        'Geontrack.view.edit.Toolbar'
     ],
 
     controller: 'users',
@@ -113,7 +113,7 @@ Ext.define('Traccar.view.edit.Users', {
     columns: {
         defaults: {
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal
+            minWidth: Geontrack.Style.columnWidthNormal
         },
         items: [{
             text: Strings.sharedName,
@@ -126,30 +126,30 @@ Ext.define('Traccar.view.edit.Users', {
         }, {
             text: Strings.userAdmin,
             dataIndex: 'administrator',
-            renderer: Traccar.AttributeFormatter.getFormatter('administrator'),
+            renderer: Geontrack.AttributeFormatter.getFormatter('administrator'),
             filter: 'boolean'
         }, {
             text: Strings.serverReadonly,
             dataIndex: 'readonly',
             hidden: true,
-            renderer: Traccar.AttributeFormatter.getFormatter('readonly'),
+            renderer: Geontrack.AttributeFormatter.getFormatter('readonly'),
             filter: 'boolean'
         }, {
             text: Strings.userDeviceReadonly,
             dataIndex: 'deviceReadonly',
-            renderer: Traccar.AttributeFormatter.getFormatter('deviceReadonly'),
+            renderer: Geontrack.AttributeFormatter.getFormatter('deviceReadonly'),
             hidden: true,
             filter: 'boolean'
         }, {
             text: Strings.sharedDisabled,
             dataIndex: 'disabled',
-            renderer: Traccar.AttributeFormatter.getFormatter('disabled'),
+            renderer: Geontrack.AttributeFormatter.getFormatter('disabled'),
             filter: 'boolean'
         }, {
             text: Strings.userExpirationTime,
             dataIndex: 'expirationTime',
             hidden: true,
-            renderer: Traccar.AttributeFormatter.getFormatter('expirationTime'),
+            renderer: Geontrack.AttributeFormatter.getFormatter('expirationTime'),
             filter: 'date'
         }]
     }

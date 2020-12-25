@@ -15,12 +15,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.SettingsMenu', {
+Ext.define('Geontrack.view.SettingsMenu', {
     extend: 'Ext.button.Button',
     xtype: 'settingsMenu',
 
     requires: [
-        'Traccar.view.SettingsMenuController'
+        'Geontrack.view.SettingsMenuController'
     ],
 
     glyph: 'xf013@FontAwesome',

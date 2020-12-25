@@ -15,14 +15,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.Application', {
+Ext.define('Geontrack.Application', {
     extend: 'Ext.app.Application',
-    name: 'Traccar',
+    name: 'Geontrack',
 
     requires: [
-        'Traccar.Style',
-        'Traccar.AttributeFormatter',
-        'Traccar.view.TouchFix62'
+        'Geontrack.Style',
+        'Geontrack.AttributeFormatter',
+        'Geontrack.view.TouchFix62'
     ],
 
     models: [
@@ -165,7 +165,7 @@ Ext.define('Traccar.Application', {
 
     setUser: function (data) {
         var reader = Ext.create('Ext.data.reader.Json', {
-            model: 'Traccar.model.User'
+            model: 'Geontrack.model.User'
         });
         this.user = reader.readRecords(data).getRecords()[0];
     },
@@ -176,7 +176,7 @@ Ext.define('Traccar.Application', {
 
     setServer: function (data) {
         var reader = Ext.create('Ext.data.reader.Json', {
-            model: 'Traccar.model.Server'
+            model: 'Geontrack.model.Server'
         });
         this.server = reader.readRecords(data).getRecords()[0];
     },
@@ -215,9 +215,9 @@ Ext.define('Traccar.Application', {
         } else {
             index = 0;
             if (deviceId !== undefined) {
-                index = deviceId % Traccar.Style.mapRouteColor.length;
+                index = deviceId % Geontrack.Style.mapRouteColor.length;
             }
-            return Traccar.Style.mapRouteColor[index];
+            return Geontrack.Style.mapRouteColor[index];
         }
     },
 
@@ -239,7 +239,7 @@ Ext.define('Traccar.Application', {
         Ext.toast({
             html: message,
             title: title,
-            width: Traccar.Style.toastWidth,
+            width: Geontrack.Style.toastWidth,
             align: 'br'
         });
     }

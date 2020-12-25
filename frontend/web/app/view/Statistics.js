@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-Ext.define('Traccar.view.Statistics', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.Statistics', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'statisticsView',
 
     requires: [
-        'Traccar.view.StatisticsController'
+        'Geontrack.view.StatisticsController'
     ],
 
     controller: 'statistics',
@@ -33,8 +33,8 @@ Ext.define('Traccar.view.Statistics', {
         }, {
             xtype: 'datefield',
             reference: 'fromDateField',
-            startDay: Traccar.Style.weekStartDay,
-            format: Traccar.Style.dateFormat,
+            startDay: Geontrack.Style.weekStartDay,
+            format: Geontrack.Style.dateFormat,
             value: new Date(new Date().getTime() - 24 * 60 * 60 * 1000)
         }, '-', {
             xtype: 'tbtext',
@@ -42,8 +42,8 @@ Ext.define('Traccar.view.Statistics', {
         }, {
             xtype: 'datefield',
             reference: 'toDateField',
-            startDay: Traccar.Style.weekStartDay,
-            format: Traccar.Style.dateFormat,
+            startDay: Geontrack.Style.weekStartDay,
+            format: Geontrack.Style.dateFormat,
             value: new Date()
         }, '-', {
             text: Strings.reportShow,
@@ -54,13 +54,13 @@ Ext.define('Traccar.view.Statistics', {
     columns: {
         defaults: {
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal
+            minWidth: Geontrack.Style.columnWidthNormal
         },
         items: [{
             text: Strings.statisticsCaptureTime,
             dataIndex: 'captureTime',
             xtype: 'datecolumn',
-            renderer: Traccar.AttributeFormatter.defaultFormatter()
+            renderer: Geontrack.AttributeFormatter.defaultFormatter()
         }, {
             text: Strings.statisticsActiveUsers,
             dataIndex: 'activeUsers'

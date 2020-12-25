@@ -15,17 +15,17 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.Main', {
+Ext.define('Geontrack.view.Main', {
     extend: 'Ext.container.Viewport',
     alias: 'widget.main',
 
     requires: [
-        'Traccar.view.MainController',
-        'Traccar.view.edit.Devices',
-        'Traccar.view.State',
-        'Traccar.view.Report',
-        'Traccar.view.Events',
-        'Traccar.view.map.Map'
+        'Geontrack.view.MainController',
+        'Geontrack.view.edit.Devices',
+        'Geontrack.view.State',
+        'Geontrack.view.Report',
+        'Geontrack.view.Events',
+        'Geontrack.view.map.Map'
     ],
 
     controller: 'mainController',
@@ -41,7 +41,7 @@ Ext.define('Traccar.view.Main', {
     items: [{
         region: 'west',
         layout: 'border',
-        width: Traccar.Style.deviceWidth,
+        width: Geontrack.Style.deviceWidth,
         title: Strings.devicesAndState,
         titleCollapse: true,
         floatable: false,
@@ -64,7 +64,7 @@ Ext.define('Traccar.view.Main', {
         region: 'south',
         xtype: 'reportView',
         reference: 'reportView',
-        height: Traccar.Style.reportHeight,
+        height: Geontrack.Style.reportHeight,
         collapsed: true,
         titleCollapse: true,
         floatable: false
@@ -76,7 +76,7 @@ Ext.define('Traccar.view.Main', {
         region: 'east',
         xtype: 'eventsView',
         reference: 'eventsView',
-        width: Traccar.Style.deviceWidth,
+        width: Geontrack.Style.deviceWidth,
         collapsed: true,
         titleCollapse: true,
         floatable: false

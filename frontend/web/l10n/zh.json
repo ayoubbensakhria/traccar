@@ -379,7 +379,7 @@
     "notificatorMail": "邮件",
     "notificatorSms": "短信",
     "notificatorFirebase": "Firebase",
-    "notificatorTraccar": "Traccar",
+    "notificatorGeontrack": "Geontrack",
     "reportReplay": "Replay",
     "reportRoute": "轨迹",
     "reportEvents": "事件",

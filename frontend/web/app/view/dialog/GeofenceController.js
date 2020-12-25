@@ -15,13 +15,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.GeofenceController', {
-    extend: 'Traccar.view.dialog.BaseEditController',
+Ext.define('Geontrack.view.dialog.GeofenceController', {
+    extend: 'Geontrack.view.dialog.BaseEditController',
     alias: 'controller.geofence',
 
     requires: [
-        'Traccar.view.BaseWindow',
-        'Traccar.view.map.GeofenceMap'
+        'Geontrack.view.BaseWindow',
+        'Geontrack.view.map.GeofenceMap'
     ],
 
     config: {
@@ -36,7 +36,7 @@ Ext.define('Traccar.view.dialog.GeofenceController', {
 
     init: function () {
         this.lookupReference('calendarCombo').setHidden(
-            Traccar.app.getBooleanAttributePreference('ui.disableCalendars'));
+            Geontrack.app.getBooleanAttributePreference('ui.disableCalendars'));
     },
 
     saveArea: function (value) {
@@ -47,7 +47,7 @@ Ext.define('Traccar.view.dialog.GeofenceController', {
         var dialog, record;
         dialog = button.up('window').down('form');
         record = dialog.getRecord();
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedArea,
             items: {
                 xtype: 'geofenceMapView',

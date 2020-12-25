@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.Toolbar', {
+Ext.define('Geontrack.view.edit.Toolbar', {
     extend: 'Ext.toolbar.Toolbar',
     xtype: 'editToolbar',
 

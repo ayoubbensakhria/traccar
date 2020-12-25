@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.MapTypes', {
+Ext.define('Geontrack.store.MapTypes', {
     extend: 'Ext.data.Store',
     fields: ['key', 'name'],
 

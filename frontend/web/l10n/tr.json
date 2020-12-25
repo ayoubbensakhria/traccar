@@ -379,7 +379,7 @@
     "notificatorMail": "Eposta",
     "notificatorSms": "SMS Mesajı",
     "notificatorFirebase": "Firebase",
-    "notificatorTraccar": "Traccar",
+    "notificatorGeontrack": "Geontrack",
     "reportReplay": "Replay",
     "reportRoute": "Rota",
     "reportEvents": "Olaylar",

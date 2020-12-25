@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.view.CustomNumberField', {
+Ext.define('Geontrack.view.CustomNumberField', {
     extend: 'Ext.form.field.Number',
     xtype: 'customNumberField',
 
@@ -33,7 +33,7 @@ Ext.define('Traccar.view.CustomNumberField', {
                         return Ext.getStore('SpeedUnits');
                     };
                     config.units.getValue = function () {
-                        return Traccar.app.getAttributePreference('speedUnit', 'kn');
+                        return Geontrack.app.getAttributePreference('speedUnit', 'kn');
                     };
                     unitName = Ext.getStore('SpeedUnits').findRecord('key', config.units.getValue()).get('name');
                     break;
@@ -43,7 +43,7 @@ Ext.define('Traccar.view.CustomNumberField', {
                         return Ext.getStore('DistanceUnits');
                     };
                     config.units.getValue = function () {
-                        return Traccar.app.getAttributePreference('distanceUnit', 'km');
+                        return Geontrack.app.getAttributePreference('distanceUnit', 'km');
                     };
                     unitName = Ext.getStore('DistanceUnits').findRecord('key', config.units.getValue()).get('name');
                     break;

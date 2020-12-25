@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.CoordinateFormats', {
+Ext.define('Geontrack.store.CoordinateFormats', {
     extend: 'Ext.data.Store',
     fields: ['key', 'name'],
 
@@ -42,7 +42,7 @@ Ext.define('Traccar.store.CoordinateFormats', {
                 value = Math.abs(value);
                 degrees = Math.floor(value);
                 minutes = (value - degrees) * 60;
-                return degrees + '° ' + minutes.toFixed(Traccar.Style.coordinatePrecision) + '\' ' + hemisphere;
+                return degrees + '° ' + minutes.toFixed(Geontrack.Style.coordinatePrecision) + '\' ' + hemisphere;
             case 'dms':
                 value = Math.abs(value);
                 degrees = Math.floor(value);
@@ -50,7 +50,7 @@ Ext.define('Traccar.store.CoordinateFormats', {
                 seconds = Math.round((value - degrees - minutes / 60) * 3600);
                 return degrees + '° ' + minutes + '\' ' + seconds + '" ' + hemisphere;
             default:
-                return value.toFixed(Traccar.Style.coordinatePrecision) + '°';
+                return value.toFixed(Geontrack.Style.coordinatePrecision) + '°';
         }
     }
 });

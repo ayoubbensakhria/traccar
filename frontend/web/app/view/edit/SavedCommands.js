@@ -16,13 +16,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.SavedCommands', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.edit.SavedCommands', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'savedCommandsView',
 
     requires: [
-        'Traccar.view.edit.SavedCommandsController',
-        'Traccar.view.edit.Toolbar'
+        'Geontrack.view.edit.SavedCommandsController',
+        'Geontrack.view.edit.Toolbar'
     ],
 
     controller: 'savedCommands',
@@ -39,7 +39,7 @@ Ext.define('Traccar.view.edit.SavedCommands', {
     columns: {
         defaults: {
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal
+            minWidth: Geontrack.Style.columnWidthNormal
         },
         items: [{
             text: Strings.sharedDescription,
@@ -54,11 +54,11 @@ Ext.define('Traccar.view.edit.SavedCommands', {
                 labelField: 'name',
                 store: 'AllCommandTypes'
             },
-            renderer: Traccar.AttributeFormatter.getFormatter('commandType')
+            renderer: Geontrack.AttributeFormatter.getFormatter('commandType')
         }, {
             text: Strings.commandSendSms,
             dataIndex: 'textChannel',
-            renderer: Traccar.AttributeFormatter.getFormatter('textChannel'),
+            renderer: Geontrack.AttributeFormatter.getFormatter('textChannel'),
             filter: 'boolean'
         }]
     }

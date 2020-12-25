@@ -16,8 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.MaintenanceController', {
-    extend: 'Traccar.view.dialog.BaseEditController',
+Ext.define('Geontrack.view.dialog.MaintenanceController', {
+    extend: 'Geontrack.view.dialog.BaseEditController',
     alias: 'controller.maintenance',
 
     init: function () {

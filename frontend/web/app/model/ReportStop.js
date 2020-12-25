@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.model.ReportStop', {
+Ext.define('Geontrack.model.ReportStop', {
     extend: 'Ext.data.Model',
     identifier: 'negative',
 
@@ -36,7 +36,7 @@ Ext.define('Traccar.model.ReportStop', {
     }, {
         name: 'startOdometer',
         type: 'float',
-        convert: Traccar.AttributeFormatter.getConverter('distance')
+        convert: Geontrack.AttributeFormatter.getConverter('distance')
     }, {
         name: 'address',
         type: 'string'
@@ -53,6 +53,6 @@ Ext.define('Traccar.model.ReportStop', {
     }, {
         name: 'spentFuel',
         type: 'float',
-        convert: Traccar.AttributeFormatter.getConverter('spentFuel')
+        convert: Geontrack.AttributeFormatter.getConverter('spentFuel')
     }]
 });

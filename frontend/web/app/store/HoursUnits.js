@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.store.HoursUnits', {
+Ext.define('Geontrack.store.HoursUnits', {
     extend: 'Ext.data.Store',
     fields: ['key', 'name', 'fullName'],
 

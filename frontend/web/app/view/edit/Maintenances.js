@@ -16,13 +16,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.Maintenances', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.edit.Maintenances', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'maintenancesView',
 
     requires: [
-        'Traccar.view.edit.MaintenancesController',
-        'Traccar.view.edit.Toolbar'
+        'Geontrack.view.edit.MaintenancesController',
+        'Geontrack.view.edit.Toolbar'
     ],
 
     controller: 'maintenances',
@@ -39,7 +39,7 @@ Ext.define('Traccar.view.edit.Maintenances', {
     columns: {
         defaults: {
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal
+            minWidth: Geontrack.Style.columnWidthNormal
         },
         items: [{
             text: Strings.sharedName,
@@ -62,14 +62,14 @@ Ext.define('Traccar.view.edit.Maintenances', {
             text: Strings.maintenanceStart,
             dataIndex: 'start',
             renderer: function (value, metaData, record) {
-                return Traccar.AttributeFormatter.renderAttribute(
+                return Geontrack.AttributeFormatter.renderAttribute(
                     value, Ext.getStore('MaintenanceTypes').getById(record.get('type')));
             }
         }, {
             text: Strings.maintenancePeriod,
             dataIndex: 'period',
             renderer: function (value, metaData, record) {
-                return Traccar.AttributeFormatter.renderAttribute(
+                return Geontrack.AttributeFormatter.renderAttribute(
                     value, Ext.getStore('MaintenanceTypes').getById(record.get('type')));
             }
         }]

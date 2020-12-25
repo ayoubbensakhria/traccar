@@ -6,7 +6,7 @@
     "globals": {
         "Ext": false,
         "ol": false,
-        "Traccar": false,
+        "Geontrack": false,
         "Strings": false,
         "Locale": false,
         "proj4": false

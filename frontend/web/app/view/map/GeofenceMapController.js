@@ -15,12 +15,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.map.GeofenceMapController', {
+Ext.define('Geontrack.view.map.GeofenceMapController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.geofenceMap',
 
     requires: [
-        'Traccar.GeofenceConverter'
+        'Geontrack.GeofenceConverter'
     ],
 
     config: {
@@ -53,7 +53,7 @@ Ext.define('Traccar.view.map.GeofenceMapController', {
                 view.getFeatures().push(new ol.Feature(new ol.geom.LineString(points)));
             };
             reader.onerror = function (event) {
-                Traccar.app.showError(event.target.error);
+                Geontrack.app.showError(event.target.error);
             };
             reader.readAsText(fileField.fileInputEl.dom.files[0]);
         }
@@ -64,7 +64,7 @@ Ext.define('Traccar.view.map.GeofenceMapController', {
         if (this.getView().getFeatures().getLength() > 0) {
             geometry = this.getView().getFeatures().pop().getGeometry();
             projection = this.getView().getMapView().getProjection();
-            this.fireEvent('savearea', Traccar.GeofenceConverter.geometryToWkt(projection, geometry));
+            this.fireEvent('savearea', Geontrack.GeofenceConverter.geometryToWkt(projection, geometry));
             button.up('window').close();
         }
     },

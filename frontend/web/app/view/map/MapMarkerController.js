@@ -16,14 +16,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.map.MapMarkerController', {
+Ext.define('Geontrack.view.map.MapMarkerController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.mapMarker',
 
     requires: [
-        'Traccar.model.Position',
-        'Traccar.model.Device',
-        'Traccar.DeviceImages'
+        'Geontrack.model.Position',
+        'Geontrack.model.Device',
+        'Geontrack.DeviceImages'
     ],
 
     config: {
@@ -78,8 +78,8 @@ Ext.define('Traccar.view.map.MapMarkerController', {
         this.reportMarkers = {};
         this.accuracyCircles = {};
         this.liveRoutes = {};
-        this.liveRouteLength = Traccar.app.getAttributePreference('web.liveRouteLength', 10);
-        this.selectZoom = Traccar.app.getAttributePreference('web.selectZoom', 0);
+        this.liveRouteLength = Geontrack.app.getAttributePreference('web.liveRouteLength', 10);
+        this.selectZoom = Geontrack.app.getAttributePreference('web.selectZoom', 0);
     },
 
     getAreaStyle: function (label, color) {
@@ -88,17 +88,17 @@ Ext.define('Traccar.view.map.MapMarkerController', {
             fillColor = ol.color.asArray(color);
             strokeColor = color;
         } else {
-            fillColor = ol.color.asArray(Traccar.Style.mapGeofenceColor);
-            strokeColor = Traccar.Style.mapGeofenceColor;
+            fillColor = ol.color.asArray(Geontrack.Style.mapGeofenceColor);
+            strokeColor = Geontrack.Style.mapGeofenceColor;
         }
-        fillColor[3] = Traccar.Style.mapGeofenceOverlayOpacity;
+        fillColor[3] = Geontrack.Style.mapGeofenceOverlayOpacity;
         styleConfig = {
             fill: new ol.style.Fill({
                 color: fillColor
             }),
             stroke: new ol.style.Stroke({
                 color: strokeColor,
-                width: Traccar.Style.mapGeofenceWidth
+                width: Geontrack.Style.mapGeofenceWidth
             })
         };
         if (label) {
@@ -106,13 +106,13 @@ Ext.define('Traccar.view.map.MapMarkerController', {
                 text: label,
                 overflow: true,
                 fill: new ol.style.Fill({
-                    color: Traccar.Style.mapGeofenceTextColor
+                    color: Geontrack.Style.mapGeofenceTextColor
                 }),
                 stroke: new ol.style.Stroke({
-                    color: Traccar.Style.mapTextStrokeColor,
-                    width: Traccar.Style.mapTextStrokeWidth
+                    color: Geontrack.Style.mapTextStrokeColor,
+                    width: Geontrack.Style.mapTextStrokeWidth
                 }),
-                font: Traccar.Style.mapTextFont
+                font: Geontrack.Style.mapTextFont
             });
         }
         return new ol.style.Style(styleConfig);
@@ -121,11 +121,11 @@ Ext.define('Traccar.view.map.MapMarkerController', {
     getDeviceColor: function (device) {
         switch (device.get('status')) {
             case 'online':
-                return Traccar.Style.mapColorOnline;
+                return Geontrack.Style.mapColorOnline;
             case 'offline':
-                return Traccar.Style.mapColorOffline;
+                return Geontrack.Style.mapColorOffline;
             default:
-                return Traccar.Style.mapColorUnknown;
+                return Geontrack.Style.mapColorUnknown;
         }
     },
 
@@ -194,8 +194,8 @@ Ext.define('Traccar.view.map.MapMarkerController', {
         start = marker.getGeometry().getCoordinates();
         end = geometry.getCoordinates();
         line = new ol.geom.LineString([start, end]);
-        duration = Traccar.Style.mapAnimateMarkerDuration;
-        timeout = Traccar.Style.mapAnimateMarkerTimeout;
+        duration = Geontrack.Style.mapAnimateMarkerDuration;
+        timeout = Geontrack.Style.mapAnimateMarkerTimeout;
         self = this;
 
         updatePosition = function (position, marker) {
@@ -249,14 +249,14 @@ Ext.define('Traccar.view.map.MapMarkerController', {
         if (position.get('accuracy')) {
             center = ol.proj.fromLonLat([position.get('longitude'), position.get('latitude')]);
             radius = Ext.getStore('DistanceUnits').convertValue(
-                position.get('accuracy'), Traccar.app.getAttributePreference('distanceUnit'), true);
+                position.get('accuracy'), Geontrack.app.getAttributePreference('distanceUnit'), true);
 
             if (feature) {
                 feature.getGeometry().setCenter(center);
                 feature.getGeometry().setRadius(radius);
             } else {
                 feature = new ol.Feature(new ol.geom.Circle(center, radius));
-                feature.setStyle(this.getAreaStyle(null, Traccar.Style.mapAccuracyColor));
+                feature.setStyle(this.getAreaStyle(null, Geontrack.Style.mapAccuracyColor));
                 feature.setId(position.get('deviceId'));
                 this.accuracyCircles[position.get('deviceId')] = feature;
                 if (this.isDeviceVisible(device)) {
@@ -409,7 +409,7 @@ Ext.define('Traccar.view.map.MapMarkerController', {
         }
 
         if (this.selectedMarker && !this.selectedMarker.get('event') &&
-                this.selectedMarker.get('record') instanceof Traccar.model.Position) {
+                this.selectedMarker.get('record') instanceof Geontrack.model.Position) {
             this.selectedMarker = null;
         }
     },
@@ -423,27 +423,27 @@ Ext.define('Traccar.view.map.MapMarkerController', {
     getRouteStyle: function (deviceId) {
         return new ol.style.Style({
             stroke: new ol.style.Stroke({
-                color: Traccar.app.getReportColor(deviceId),
-                width: Traccar.Style.mapRouteWidth
+                color: Geontrack.app.getReportColor(deviceId),
+                width: Geontrack.Style.mapRouteWidth
             })
         });
     },
 
     getMarkerStyle: function (zoom, color, angle, category) {
-        var image = Traccar.DeviceImages.getImageIcon(color, zoom, angle, category);
+        var image = Geontrack.DeviceImages.getImageIcon(color, zoom, angle, category);
         return new ol.style.Style({
             image: image,
             text: new ol.style.Text({
                 textBaseline: 'bottom',
                 fill: new ol.style.Fill({
-                    color: Traccar.Style.mapTextColor
+                    color: Geontrack.Style.mapTextColor
                 }),
                 stroke: new ol.style.Stroke({
-                    color: Traccar.Style.mapTextStrokeColor,
-                    width: Traccar.Style.mapTextStrokeWidth
+                    color: Geontrack.Style.mapTextStrokeColor,
+                    width: Geontrack.Style.mapTextStrokeWidth
                 }),
-                offsetY: -image.getSize()[1] / 2 - Traccar.Style.mapTextOffset,
-                font: Traccar.Style.mapTextFont
+                offsetY: -image.getSize()[1] / 2 - Geontrack.Style.mapTextOffset,
+                font: Geontrack.Style.mapTextFont
             })
         });
     },
@@ -453,30 +453,30 @@ Ext.define('Traccar.view.map.MapMarkerController', {
     },
 
     getReportMarker: function (deviceId, angle) {
-        return this.getMarkerStyle(false, Traccar.app.getReportColor(deviceId), angle, 'arrow');
+        return this.getMarkerStyle(false, Geontrack.app.getReportColor(deviceId), angle, 'arrow');
     },
 
     resizeMarker: function (style, zoom) {
         var image, text;
-        image = Traccar.DeviceImages.getImageIcon(
+        image = Geontrack.DeviceImages.getImageIcon(
             style.getImage().fill, zoom, style.getImage().angle, style.getImage().category);
         text = style.getText();
-        text.setOffsetY(-image.getSize()[1] / 2 - Traccar.Style.mapTextOffset);
+        text.setOffsetY(-image.getSize()[1] / 2 - Geontrack.Style.mapTextOffset);
         style.setText(text);
         style.setImage(image);
     },
 
     rotateMarker: function (style, angle) {
-        style.setImage(Traccar.DeviceImages.getImageIcon(
+        style.setImage(Geontrack.DeviceImages.getImageIcon(
             style.getImage().fill, style.getImage().zoom, angle, style.getImage().category));
     },
 
     updateDeviceMarker: function (style, color, category) {
         var image, text;
-        image = Traccar.DeviceImages.getImageIcon(
+        image = Geontrack.DeviceImages.getImageIcon(
             color, style.getImage().zoom, style.getImage().angle, category);
         text = style.getText();
-        text.setOffsetY(-image.getSize()[1] / 2 - Traccar.Style.mapTextOffset);
+        text.setOffsetY(-image.getSize()[1] / 2 - Geontrack.Style.mapTextOffset);
         style.setText(text);
         style.setImage(image);
     },
@@ -486,7 +486,7 @@ Ext.define('Traccar.view.map.MapMarkerController', {
             if (this.selectedMarker.get('event')) {
                 this.getView().getMarkersSource().removeFeature(this.selectedMarker);
             } else if (!Ext.getStore('ReportRoute').showMarkers &&
-                    this.selectedMarker.get('record') instanceof Traccar.model.Position) {
+                    this.selectedMarker.get('record') instanceof Geontrack.model.Position) {
                 this.getView().getMarkersSource().removeFeature(this.selectedMarker);
                 delete this.reportMarkers[this.selectedMarker.get('record').get('id')];
             } else {
@@ -516,7 +516,7 @@ Ext.define('Traccar.view.map.MapMarkerController', {
     },
 
     selectReport: function (position, center) {
-        if (position instanceof Traccar.model.Position) {
+        if (position instanceof Geontrack.model.Position) {
             if (!Ext.getStore('ReportRoute').showMarkers) {
                 this.reportMarkers[position.get('id')] = this.addReportMarker(position);
             }
@@ -540,7 +540,7 @@ Ext.define('Traccar.view.map.MapMarkerController', {
     selectFeature: function (feature) {
         var record = feature.get('record');
         if (record) {
-            if (record instanceof Traccar.model.Device) {
+            if (record instanceof Geontrack.model.Device) {
                 this.fireEvent('selectdevice', record, false);
             } else {
                 this.fireEvent('selectreport', record, false);

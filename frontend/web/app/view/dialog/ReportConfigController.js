@@ -16,13 +16,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.ReportConfigController', {
+Ext.define('Geontrack.view.dialog.ReportConfigController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.reportConfig',
 
     requires: [
-        'Traccar.store.ReportEventTypes',
-        'Traccar.store.AllNotifications'
+        'Geontrack.store.ReportEventTypes',
+        'Geontrack.store.AllNotifications'
     ],
 
     onSaveClick: function (button) {
@@ -32,10 +32,10 @@ Ext.define('Traccar.view.dialog.ReportConfigController', {
         callingPanel.deviceId = this.lookupReference('deviceField').getValue();
         callingPanel.groupId = this.lookupReference('groupField').getValue();
         eventType = this.lookupReference('eventTypeField').getValue();
-        if (eventType.indexOf(Traccar.store.ReportEventTypes.allEvents) > -1) {
-            eventType = [Traccar.store.ReportEventTypes.allEvents];
+        if (eventType.indexOf(Geontrack.store.ReportEventTypes.allEvents) > -1) {
+            eventType = [Geontrack.store.ReportEventTypes.allEvents];
         } else if (eventType.length === this.lookupReference('eventTypeField').getStore().getCount() - 1) {
-            eventType = [Traccar.store.ReportEventTypes.allEvents];
+            eventType = [Geontrack.store.ReportEventTypes.allEvents];
         }
         callingPanel.eventType = eventType;
         callingPanel.chartType = this.lookupReference('chartTypeField').getValue();

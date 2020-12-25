@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.store.AttributeValueTypes', {
+Ext.define('Geontrack.store.AttributeValueTypes', {
     extend: 'Ext.data.Store',
     fields: ['id', 'name'],
     proxy: 'memory',

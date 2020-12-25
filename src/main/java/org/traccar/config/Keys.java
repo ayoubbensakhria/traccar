@@ -355,14 +355,14 @@ public final class Keys {
 
     /**
      * Optional parameter to specify minimum distance for new reverse geocoding request. If distance is less than
-     * specified value (in meters), then Traccar will reuse last known address.
+     * specified value (in meters), then Geontrack will reuse last known address.
      */
     public static final ConfigKey GEOCODER_REUSE_DISTANCE = new ConfigKey(
             "geocoder.reuseDistance", Integer.class);
 
     /**
      * Boolean flag to enable LBS location resolution. Some devices send cell towers information and WiFi point when GPS
-     * location is not available. Traccar can determine coordinates based on that information using third party
+     * location is not available. Geontrack can determine coordinates based on that information using third party
      * services. Default value is false.
      */
     public static final ConfigKey GEOLOCATION_ENABLE = new ConfigKey(

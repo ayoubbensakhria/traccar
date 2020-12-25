@@ -15,12 +15,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.Group', {
-    extend: 'Traccar.view.dialog.BaseEdit',
+Ext.define('Geontrack.view.dialog.Group', {
+    extend: 'Geontrack.view.dialog.BaseEdit',
 
     requires: [
-        'Traccar.view.ClearableComboBox',
-        'Traccar.view.UnescapedTextField'
+        'Geontrack.view.ClearableComboBox',
+        'Geontrack.view.UnescapedTextField'
     ],
 
     title: Strings.groupDialog,

@@ -379,7 +379,7 @@
     "notificatorMail": "Pošta",
     "notificatorSms": "SMS",
     "notificatorFirebase": "Firebase",
-    "notificatorTraccar": "Traccar",
+    "notificatorGeontrack": "Geontrack",
     "reportReplay": "Istorija kretanja",
     "reportRoute": "Ruta",
     "reportEvents": "Događaji",

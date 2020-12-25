@@ -15,37 +15,37 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.SettingsMenuController', {
+Ext.define('Geontrack.view.SettingsMenuController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.settings',
 
     requires: [
-        'Traccar.view.dialog.LoginController',
-        'Traccar.view.dialog.User',
-        'Traccar.view.dialog.Server',
-        'Traccar.view.edit.Users',
-        'Traccar.view.edit.Groups',
-        'Traccar.view.edit.Geofences',
-        'Traccar.view.edit.Drivers',
-        'Traccar.view.edit.Notifications',
-        'Traccar.view.edit.ComputedAttributes',
-        'Traccar.view.Statistics',
-        'Traccar.view.edit.Calendars',
-        'Traccar.view.edit.SavedCommands',
-        'Traccar.view.edit.Maintenances',
-        'Traccar.view.BaseWindow'
+        'Geontrack.view.dialog.LoginController',
+        'Geontrack.view.dialog.User',
+        'Geontrack.view.dialog.Server',
+        'Geontrack.view.edit.Users',
+        'Geontrack.view.edit.Groups',
+        'Geontrack.view.edit.Geofences',
+        'Geontrack.view.edit.Drivers',
+        'Geontrack.view.edit.Notifications',
+        'Geontrack.view.edit.ComputedAttributes',
+        'Geontrack.view.Statistics',
+        'Geontrack.view.edit.Calendars',
+        'Geontrack.view.edit.SavedCommands',
+        'Geontrack.view.edit.Maintenances',
+        'Geontrack.view.BaseWindow'
     ],
 
     init: function () {
         var admin, manager, readonly;
-        admin = Traccar.app.getUser().get('administrator');
-        manager = Traccar.app.getUser().get('userLimit') !== 0;
-        readonly = Traccar.app.getPreference('readonly', false);
+        admin = Geontrack.app.getUser().get('administrator');
+        manager = Geontrack.app.getUser().get('userLimit') !== 0;
+        readonly = Geontrack.app.getPreference('readonly', false);
         if (admin) {
             this.lookupReference('settingsServerButton').setHidden(false);
             this.lookupReference('settingsStatisticsButton').setHidden(false);
             this.lookupReference('settingsComputedAttributesButton').setHidden(
-                Traccar.app.getBooleanAttributePreference('ui.disableComputedAttributes'));
+                Geontrack.app.getBooleanAttributePreference('ui.disableComputedAttributes'));
         }
         if (admin || manager) {
             this.lookupReference('settingsUsersButton').setHidden(false);
@@ -56,26 +56,26 @@ Ext.define('Traccar.view.SettingsMenuController', {
             this.lookupReference('settingsGeofencesButton').setHidden(false);
             this.lookupReference('settingsNotificationsButton').setHidden(false);
             this.lookupReference('settingsCalendarsButton').setHidden(
-                Traccar.app.getBooleanAttributePreference('ui.disableCalendars'));
+                Geontrack.app.getBooleanAttributePreference('ui.disableCalendars'));
             this.lookupReference('settingsDriversButton').setHidden(
-                Traccar.app.getVehicleFeaturesDisabled() || Traccar.app.getBooleanAttributePreference('ui.disableDrivers'));
-            this.lookupReference('settingsCommandsButton').setHidden(Traccar.app.getPreference('limitCommands', false));
+                Geontrack.app.getVehicleFeaturesDisabled() || Geontrack.app.getBooleanAttributePreference('ui.disableDrivers'));
+            this.lookupReference('settingsCommandsButton').setHidden(Geontrack.app.getPreference('limitCommands', false));
             this.lookupReference('settingsMaintenancesButton').setHidden(
-                Traccar.app.getVehicleFeaturesDisabled() || Traccar.app.getBooleanAttributePreference('ui.disableMaintenance'));
+                Geontrack.app.getVehicleFeaturesDisabled() || Geontrack.app.getBooleanAttributePreference('ui.disableMaintenance'));
         }
     },
 
     onUserClick: function () {
-        var dialog = Ext.create('Traccar.view.dialog.User', {
+        var dialog = Ext.create('Geontrack.view.dialog.User', {
             selfEdit: true
         });
-        dialog.down('form').loadRecord(Traccar.app.getUser());
+        dialog.down('form').loadRecord(Geontrack.app.getUser());
         dialog.lookupReference('testNotificationButton').setHidden(false);
         dialog.show();
     },
 
     onGroupsClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.settingsGroups,
             items: {
                 xtype: 'groupsView'
@@ -84,7 +84,7 @@ Ext.define('Traccar.view.SettingsMenuController', {
     },
 
     onGeofencesClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedGeofences,
             items: {
                 xtype: 'geofencesView'
@@ -93,13 +93,13 @@ Ext.define('Traccar.view.SettingsMenuController', {
     },
 
     onServerClick: function () {
-        var dialog = Ext.create('Traccar.view.dialog.Server');
-        dialog.down('form').loadRecord(Traccar.app.getServer());
+        var dialog = Ext.create('Geontrack.view.dialog.Server');
+        dialog.down('form').loadRecord(Geontrack.app.getServer());
         dialog.show();
     },
 
     onUsersClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.settingsUsers,
             items: {
                 xtype: 'usersView'
@@ -108,7 +108,7 @@ Ext.define('Traccar.view.SettingsMenuController', {
     },
 
     onNotificationsClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedNotifications,
             items: {
                 xtype: 'notificationsView'
@@ -117,7 +117,7 @@ Ext.define('Traccar.view.SettingsMenuController', {
     },
 
     onComputedAttributesClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedComputedAttributes,
             items: {
                 xtype: 'computedAttributesView'
@@ -126,7 +126,7 @@ Ext.define('Traccar.view.SettingsMenuController', {
     },
 
     onStatisticsClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.statisticsTitle,
             items: {
                 xtype: 'statisticsView'
@@ -135,7 +135,7 @@ Ext.define('Traccar.view.SettingsMenuController', {
     },
 
     onCalendarsClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedCalendars,
             items: {
                 xtype: 'calendarsView'
@@ -144,7 +144,7 @@ Ext.define('Traccar.view.SettingsMenuController', {
     },
 
     onDriversClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedDrivers,
             items: {
                 xtype: 'driversView'
@@ -153,7 +153,7 @@ Ext.define('Traccar.view.SettingsMenuController', {
     },
 
     onCommandsClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedSavedCommands,
             items: {
                 xtype: 'savedCommandsView'
@@ -162,7 +162,7 @@ Ext.define('Traccar.view.SettingsMenuController', {
     },
 
     onMaintenancesClick: function () {
-        Ext.create('Traccar.view.BaseWindow', {
+        Ext.create('Geontrack.view.BaseWindow', {
             title: Strings.sharedMaintenance,
             items: {
                 xtype: 'maintenancesView'
@@ -171,6 +171,6 @@ Ext.define('Traccar.view.SettingsMenuController', {
     },
 
     onLogoutClick: function () {
-        Ext.create('Traccar.view.dialog.LoginController').logout();
+        Ext.create('Geontrack.view.dialog.LoginController').logout();
     }
 });

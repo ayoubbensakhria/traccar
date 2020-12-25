@@ -20,7 +20,7 @@
  * Resolved in current yet unreleased version
  */
 
-Ext.define('Traccar.view.TouchFix62', {
+Ext.define('Geontrack.view.TouchFix62', {
     override: 'Ext.dom.Element'
 },
 function () {

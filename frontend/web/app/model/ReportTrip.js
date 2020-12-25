@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.model.ReportTrip', {
+Ext.define('Geontrack.model.ReportTrip', {
     extend: 'Ext.data.Model',
     identifier: 'negative',
 
@@ -29,23 +29,23 @@ Ext.define('Traccar.model.ReportTrip', {
     }, {
         name: 'maxSpeed',
         type: 'float',
-        convert: Traccar.AttributeFormatter.getConverter('speed')
+        convert: Geontrack.AttributeFormatter.getConverter('speed')
     }, {
         name: 'averageSpeed',
         type: 'float',
-        convert: Traccar.AttributeFormatter.getConverter('speed')
+        convert: Geontrack.AttributeFormatter.getConverter('speed')
     }, {
         name: 'distance',
         type: 'float',
-        convert: Traccar.AttributeFormatter.getConverter('distance')
+        convert: Geontrack.AttributeFormatter.getConverter('distance')
     }, {
         name: 'startOdometer',
         type: 'float',
-        convert: Traccar.AttributeFormatter.getConverter('distance')
+        convert: Geontrack.AttributeFormatter.getConverter('distance')
     }, {
         name: 'endOdometer',
         type: 'float',
-        convert: Traccar.AttributeFormatter.getConverter('distance')
+        convert: Geontrack.AttributeFormatter.getConverter('distance')
     }, {
         name: 'duration',
         type: 'int'
@@ -66,7 +66,7 @@ Ext.define('Traccar.model.ReportTrip', {
     }, {
         name: 'spentFuel',
         type: 'float',
-        convert: Traccar.AttributeFormatter.getConverter('spentFuel')
+        convert: Geontrack.AttributeFormatter.getConverter('spentFuel')
     }, {
         name: 'driverUniqueId',
         type: 'string'

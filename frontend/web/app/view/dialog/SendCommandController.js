@@ -16,12 +16,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.SendCommandController', {
-    extend: 'Traccar.view.dialog.SavedCommandController',
+Ext.define('Geontrack.view.dialog.SendCommandController', {
+    extend: 'Geontrack.view.dialog.SavedCommandController',
     alias: 'controller.sendCommand',
 
     requires: [
-        'Traccar.view.permissions.SavedCommands'
+        'Geontrack.view.permissions.SavedCommands'
     ],
 
     onSendClick: function (button) {
@@ -65,9 +65,9 @@ Ext.define('Traccar.view.dialog.SendCommandController', {
     onSendResult: function (options, success, response) {
         if (success) {
             this.closeView();
-            Traccar.app.showToast(response.status === 202 ? Strings.commandQueued : Strings.commandSent);
+            Geontrack.app.showToast(response.status === 202 ? Strings.commandQueued : Strings.commandSent);
         } else {
-            Traccar.app.showError(response);
+            Geontrack.app.showError(response);
         }
     },
 

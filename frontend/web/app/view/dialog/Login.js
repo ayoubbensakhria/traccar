@@ -15,12 +15,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.Login', {
-    extend: 'Traccar.view.dialog.Base',
+Ext.define('Geontrack.view.dialog.Login', {
+    extend: 'Geontrack.view.dialog.Base',
     alias: 'widget.login',
 
     requires: [
-        'Traccar.view.dialog.LoginController'
+        'Geontrack.view.dialog.LoginController'
     ],
 
     controller: 'login',

@@ -16,13 +16,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.Maintenance', {
-    extend: 'Traccar.view.dialog.BaseEdit',
+Ext.define('Geontrack.view.dialog.Maintenance', {
+    extend: 'Geontrack.view.dialog.BaseEdit',
 
     requires: [
-        'Traccar.view.dialog.MaintenanceController',
-        'Traccar.view.CustomNumberField',
-        'Traccar.view.UnescapedTextField'
+        'Geontrack.view.dialog.MaintenanceController',
+        'Geontrack.view.CustomNumberField',
+        'Geontrack.view.UnescapedTextField'
     ],
 
     controller: 'maintenance',

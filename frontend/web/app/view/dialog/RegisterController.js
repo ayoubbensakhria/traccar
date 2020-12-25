@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.RegisterController', {
+Ext.define('Geontrack.view.dialog.RegisterController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.register',
 
@@ -35,9 +35,9 @@ Ext.define('Traccar.view.dialog.RegisterController', {
     onCreateReturn: function (options, success, response) {
         if (success) {
             this.closeView();
-            Traccar.app.showToast(Strings.loginCreated);
+            Geontrack.app.showToast(Strings.loginCreated);
         } else {
-            Traccar.app.showError(response);
+            Geontrack.app.showError(response);
         }
     }
 

@@ -15,20 +15,20 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.DevicesController', {
-    extend: 'Traccar.view.edit.ToolbarController',
+Ext.define('Geontrack.view.edit.DevicesController', {
+    extend: 'Geontrack.view.edit.ToolbarController',
     alias: 'controller.devices',
 
     requires: [
-        'Traccar.view.dialog.SendCommand',
-        'Traccar.view.dialog.Device',
-        'Traccar.view.permissions.Geofences',
-        'Traccar.view.permissions.ComputedAttributes',
-        'Traccar.view.permissions.Drivers',
-        'Traccar.view.permissions.SavedCommands',
-        'Traccar.view.BaseWindow',
-        'Traccar.model.Device',
-        'Traccar.model.Command'
+        'Geontrack.view.dialog.SendCommand',
+        'Geontrack.view.dialog.Device',
+        'Geontrack.view.permissions.Geofences',
+        'Geontrack.view.permissions.ComputedAttributes',
+        'Geontrack.view.permissions.Drivers',
+        'Geontrack.view.permissions.SavedCommands',
+        'Geontrack.view.BaseWindow',
+        'Geontrack.model.Device',
+        'Geontrack.model.Command'
     ],
 
     config: {
@@ -54,20 +54,20 @@ Ext.define('Traccar.view.edit.DevicesController', {
         }
     },
 
-    objectModel: 'Traccar.model.Device',
-    objectDialog: 'Traccar.view.dialog.Device',
+    objectModel: 'Geontrack.model.Device',
+    objectDialog: 'Geontrack.view.dialog.Device',
     removeTitle: Strings.sharedDevice,
 
     init: function () {
         var self = this, readonly, deviceReadonly;
-        deviceReadonly = Traccar.app.getPreference('deviceReadonly', false) && !Traccar.app.getUser().get('administrator');
-        readonly = Traccar.app.getPreference('readonly', false) && !Traccar.app.getUser().get('administrator');
+        deviceReadonly = Geontrack.app.getPreference('deviceReadonly', false) && !Geontrack.app.getUser().get('administrator');
+        readonly = Geontrack.app.getPreference('readonly', false) && !Geontrack.app.getUser().get('administrator');
         this.lookupReference('toolbarAddButton').setDisabled(readonly || deviceReadonly);
         this.lookupReference('toolbarDeviceMenu').setHidden(readonly || deviceReadonly);
 
         setInterval(function () {
             self.getView().getView().refresh();
-        }, Traccar.Style.refreshPeriod);
+        }, Geontrack.Style.refreshPeriod);
     },
 
     onCommandClick: function () {
@@ -75,12 +75,12 @@ Ext.define('Traccar.view.edit.DevicesController', {
         device = this.getView().getSelectionModel().getSelection()[0];
         deviceId = device.get('id');
 
-        dialog = Ext.create('Traccar.view.dialog.SendCommand');
+        dialog = Ext.create('Geontrack.view.dialog.SendCommand');
         dialog.deviceId = deviceId;
 
         commandsStore = dialog.lookupReference('commandsComboBox').getStore();
         commandsStore.getProxy().setExtraParam('deviceId', deviceId);
-        if (!Traccar.app.getPreference('limitCommands', false)) {
+        if (!Geontrack.app.getPreference('limitCommands', false)) {
             commandsStore.add({
                 id: 0,
                 description: Strings.sharedNew
@@ -99,8 +99,8 @@ Ext.define('Traccar.view.edit.DevicesController', {
 
     updateButtons: function (selected) {
         var readonly, deviceReadonly, empty, deviceMenu;
-        deviceReadonly = Traccar.app.getPreference('deviceReadonly', false) && !Traccar.app.getUser().get('administrator');
-        readonly = Traccar.app.getPreference('readonly', false) && !Traccar.app.getUser().get('administrator');
+        deviceReadonly = Geontrack.app.getPreference('deviceReadonly', false) && !Geontrack.app.getUser().get('administrator');
+        readonly = Geontrack.app.getPreference('readonly', false) && !Geontrack.app.getUser().get('administrator');
         empty = selected.length === 0;
         this.lookupReference('toolbarEditButton').setDisabled(empty || readonly || deviceReadonly);
         this.lookupReference('toolbarRemoveButton').setDisabled(empty || readonly || deviceReadonly);

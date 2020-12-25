@@ -16,8 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.permissions.SavedCommands', {
-    extend: 'Traccar.view.permissions.Base',
+Ext.define('Geontrack.view.permissions.SavedCommands', {
+    extend: 'Geontrack.view.permissions.Base',
     xtype: 'linkSavedCommandsView',
 
     columns: {
@@ -25,25 +25,25 @@ Ext.define('Traccar.view.permissions.SavedCommands', {
             text: Strings.sharedDescription,
             dataIndex: 'description',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: 'string'
         }, {
             text: Strings.sharedType,
             dataIndex: 'type',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: {
                 type: 'list',
                 idField: 'type',
                 labelField: 'name',
                 store: 'AllCommandTypes'
             },
-            renderer: Traccar.AttributeFormatter.getFormatter('commandType')
+            renderer: Geontrack.AttributeFormatter.getFormatter('commandType')
         }, {
             text: Strings.commandSendSms,
             dataIndex: 'textChannel',
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal,
+            minWidth: Geontrack.Style.columnWidthNormal,
             filter: 'boolean'
         }]
     }

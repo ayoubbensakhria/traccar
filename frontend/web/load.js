@@ -29,7 +29,7 @@
     touchMode = 'ontouchstart' in window || navigator.maxTouchPoints;
 
     window.updateNotificationToken = function (token) {
-        Traccar.app.updateNotificationToken(token);
+        Geontrack.app.updateNotificationToken(token);
     };
 
     locale = {};

@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.map.BaseMap', {
+Ext.define('Geontrack.view.map.BaseMap', {
     extend: 'Ext.panel.Panel',
     xtype: 'baseMapView',
 
@@ -32,9 +32,9 @@ Ext.define('Traccar.view.map.BaseMap', {
     initMap: function () {
         var server, layer, type, bingKey, lat, lon, zoom, maxZoom, target, poiLayer, self = this;
 
-        server = Traccar.app.getServer();
+        server = Geontrack.app.getServer();
 
-        type = Traccar.app.getPreference('map', null);
+        type = Geontrack.app.getPreference('map', null);
         bingKey = server.get('bingKey');
 
         switch (type) {
@@ -151,10 +151,10 @@ Ext.define('Traccar.view.map.BaseMap', {
                 break;
         }
 
-        lat = Traccar.app.getPreference('latitude', Traccar.Style.mapDefaultLat);
-        lon = Traccar.app.getPreference('longitude', Traccar.Style.mapDefaultLon);
-        zoom = Traccar.app.getPreference('zoom', Traccar.Style.mapDefaultZoom);
-        maxZoom = Traccar.app.getAttributePreference('web.maxZoom', Traccar.Style.mapMaxZoom);
+        lat = Geontrack.app.getPreference('latitude', Geontrack.Style.mapDefaultLat);
+        lon = Geontrack.app.getPreference('longitude', Geontrack.Style.mapDefaultLon);
+        zoom = Geontrack.app.getPreference('zoom', Geontrack.Style.mapDefaultZoom);
+        maxZoom = Geontrack.app.getAttributePreference('web.maxZoom', Geontrack.Style.mapMaxZoom);
 
         this.mapView = new ol.View({
             center: ol.proj.fromLonLat([lon, lat]),
@@ -168,7 +168,7 @@ Ext.define('Traccar.view.map.BaseMap', {
             view: this.mapView
         });
 
-        poiLayer = Traccar.app.getPreference('poiLayer', null);
+        poiLayer = Geontrack.app.getPreference('poiLayer', null);
 
         if (poiLayer) {
             this.map.addLayer(new ol.layer.Vector({
@@ -181,7 +181,7 @@ Ext.define('Traccar.view.map.BaseMap', {
 
         this.body.dom.tabIndex = 0;
 
-        switch (Traccar.app.getAttributePreference('distanceUnit', 'km')) {
+        switch (Geontrack.app.getAttributePreference('distanceUnit', 'km')) {
             case 'mi':
                 this.map.addControl(new ol.control.ScaleLine({
                     units: 'us'

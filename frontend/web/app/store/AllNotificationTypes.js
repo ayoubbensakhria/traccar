@@ -16,16 +16,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.AllNotificationTypes', {
+Ext.define('Geontrack.store.AllNotificationTypes', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.KnownNotification',
+    model: 'Geontrack.model.KnownNotification',
 
     proxy: {
         type: 'rest',
         url: 'api/notifications/types',
         listeners: {
             exception: function (proxy, response) {
-                Traccar.app.showError(response);
+                Geontrack.app.showError(response);
             }
         }
     }

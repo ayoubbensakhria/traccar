@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.ReportChartTypes', {
+Ext.define('Geontrack.store.ReportChartTypes', {
     extend: 'Ext.data.Store',
     fields: ['key', 'name'],
 

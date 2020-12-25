@@ -15,9 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.store.CommonUserAttributes', {
+Ext.define('Geontrack.store.CommonUserAttributes', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.KnownAttribute',
+    model: 'Geontrack.model.KnownAttribute',
 
     data: [{
         key: 'web.liveRouteLength',
@@ -29,15 +29,15 @@ Ext.define('Traccar.store.CommonUserAttributes', {
         name: Strings.attributeWebSelectZoom,
         valueType: 'number',
         allowDecimals: false,
-        minValue: Traccar.Style.mapDefaultZoom,
-        maxValue: Traccar.Style.mapMaxZoom
+        minValue: Geontrack.Style.mapDefaultZoom,
+        maxValue: Geontrack.Style.mapMaxZoom
     }, {
         key: 'web.maxZoom',
         name: Strings.attributeWebMaxZoom,
         valueType: 'number',
         allowDecimals: false,
-        minValue: Traccar.Style.mapDefaultZoom,
-        maxValue: Traccar.Style.mapMaxZoom
+        minValue: Geontrack.Style.mapDefaultZoom,
+        maxValue: Geontrack.Style.mapMaxZoom
     }, {
         key: 'ui.disableReport',
         name: Strings.attributeUiDisableReport,

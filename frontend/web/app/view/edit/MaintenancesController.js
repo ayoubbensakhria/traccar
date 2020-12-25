@@ -16,16 +16,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.MaintenancesController', {
-    extend: 'Traccar.view.edit.ToolbarController',
+Ext.define('Geontrack.view.edit.MaintenancesController', {
+    extend: 'Geontrack.view.edit.ToolbarController',
     alias: 'controller.maintenances',
 
     requires: [
-        'Traccar.view.dialog.Maintenance',
-        'Traccar.model.Maintenance'
+        'Geontrack.view.dialog.Maintenance',
+        'Geontrack.model.Maintenance'
     ],
 
-    objectModel: 'Traccar.model.Maintenance',
-    objectDialog: 'Traccar.view.dialog.Maintenance',
+    objectModel: 'Geontrack.model.Maintenance',
+    objectDialog: 'Geontrack.view.dialog.Maintenance',
     removeTitle: Strings.sharedMaintenance
 });

@@ -15,9 +15,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.Geofences', {
+Ext.define('Geontrack.store.Geofences', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.Geofence',
+    model: 'Geontrack.model.Geofence',
 
     proxy: {
         type: 'rest',

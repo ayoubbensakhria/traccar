@@ -15,13 +15,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.map.Map', {
-    extend: 'Traccar.view.map.BaseMap',
+Ext.define('Geontrack.view.map.Map', {
+    extend: 'Geontrack.view.map.BaseMap',
     xtype: 'mapView',
 
     requires: [
-        'Traccar.view.map.MapController',
-        'Traccar.view.SettingsMenu'
+        'Geontrack.view.map.MapController',
+        'Geontrack.view.SettingsMenu'
     ],
 
     controller: 'map',

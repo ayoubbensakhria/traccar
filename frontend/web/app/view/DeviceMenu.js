@@ -16,12 +16,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.DeviceMenu', {
+Ext.define('Geontrack.view.DeviceMenu', {
     extend: 'Ext.button.Button',
     xtype: 'deviceMenu',
 
     requires: [
-        'Traccar.view.DeviceMenuController'
+        'Geontrack.view.DeviceMenuController'
     ],
 
     glyph: 'xf013@FontAwesome',

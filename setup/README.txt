@@ -1,4 +1,4 @@
-Traccar is a free and open source GPS tracking system.
+Geontrack is a free and open source GPS tracking system.
 
 Installation instructions are available on the official website:
 

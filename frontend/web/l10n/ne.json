@@ -379,7 +379,7 @@
     "notificatorMail": "पत्र",
     "notificatorSms": "यसएमयस",
     "notificatorFirebase": "Firebase",
-    "notificatorTraccar": "Traccar",
+    "notificatorGeontrack": "Geontrack",
     "reportReplay": "Replay",
     "reportRoute": "Route",
     "reportEvents": "घटनाहरू",

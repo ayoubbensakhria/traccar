@@ -16,13 +16,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.NotificationController', {
-    extend: 'Traccar.view.dialog.BaseEditController',
+Ext.define('Geontrack.view.dialog.NotificationController', {
+    extend: 'Geontrack.view.dialog.BaseEditController',
     alias: 'controller.notification',
 
     init: function () {
         this.lookupReference('calendarCombo').setHidden(
-            Traccar.app.getBooleanAttributePreference('ui.disableCalendars'));
+            Geontrack.app.getBooleanAttributePreference('ui.disableCalendars'));
     },
 
     onTypeChange: function (view, value) {

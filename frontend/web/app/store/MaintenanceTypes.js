@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.store.MaintenanceTypes', {
+Ext.define('Geontrack.store.MaintenanceTypes', {
     extend: 'Ext.data.Store',
-    model: 'Traccar.model.KnownAttribute'
+    model: 'Geontrack.model.KnownAttribute'
 });

@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.permissions.BaseController', {
+Ext.define('Geontrack.view.permissions.BaseController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.base',
 
@@ -29,7 +29,7 @@ Ext.define('Traccar.view.permissions.BaseController', {
         this.getView().getStore().load({
             scope: this,
             callback: function () {
-                var linkStore = Ext.create('Traccar.store.' + linkStoreName);
+                var linkStore = Ext.create('Geontrack.store.' + linkStoreName);
                 linkStore.load({
                     params: params,
                     scope: this,
@@ -58,7 +58,7 @@ Ext.define('Traccar.view.permissions.BaseController', {
             callback: function (options, success, response) {
                 if (!success) {
                     selection.deselect(record, true);
-                    Traccar.app.showError(response);
+                    Geontrack.app.showError(response);
                 }
             }
         });
@@ -76,7 +76,7 @@ Ext.define('Traccar.view.permissions.BaseController', {
             callback: function (options, success, response) {
                 if (!success) {
                     selection.select(record, true, true);
-                    Traccar.app.showError(response);
+                    Geontrack.app.showError(response);
                 }
             }
         });

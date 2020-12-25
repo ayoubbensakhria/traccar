@@ -379,7 +379,7 @@
     "notificatorMail": "மின்னஞ்சல்",
     "notificatorSms": "குறுஞ்சய்தி ",
     "notificatorFirebase": "Firebase",
-    "notificatorTraccar": "Traccar",
+    "notificatorGeontrack": "Geontrack",
     "reportReplay": "Replay",
     "reportRoute": "பாதை",
     "reportEvents": "நிகழ்வுகள்",

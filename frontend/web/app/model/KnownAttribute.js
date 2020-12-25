@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-Ext.define('Traccar.model.KnownAttribute', {
+Ext.define('Geontrack.model.KnownAttribute', {
     extend: 'Ext.data.Model',
     idProperty: 'key',
 

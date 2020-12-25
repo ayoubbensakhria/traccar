@@ -16,13 +16,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.edit.Notifications', {
-    extend: 'Traccar.view.GridPanel',
+Ext.define('Geontrack.view.edit.Notifications', {
+    extend: 'Geontrack.view.GridPanel',
     xtype: 'notificationsView',
 
     requires: [
-        'Traccar.view.edit.NotificationsController',
-        'Traccar.view.edit.Toolbar'
+        'Geontrack.view.edit.NotificationsController',
+        'Geontrack.view.edit.Toolbar'
     ],
 
     controller: 'notifications',
@@ -39,14 +39,14 @@ Ext.define('Traccar.view.edit.Notifications', {
     columns: {
         defaults: {
             flex: 1,
-            minWidth: Traccar.Style.columnWidthNormal
+            minWidth: Geontrack.Style.columnWidthNormal
         },
         items: [{
             text: Strings.notificationType,
             dataIndex: 'type',
             flex: 2,
             renderer: function (value) {
-                return Traccar.app.getEventString(value);
+                return Geontrack.app.getEventString(value);
             },
             filter: {
                 type: 'list',
@@ -57,7 +57,7 @@ Ext.define('Traccar.view.edit.Notifications', {
         }, {
             text: Strings.notificationAlways,
             dataIndex: 'always',
-            renderer: Traccar.AttributeFormatter.getFormatter('always'),
+            renderer: Geontrack.AttributeFormatter.getFormatter('always'),
             filter: 'boolean'
         }, {
             text: Strings.sharedAlarms,
@@ -91,7 +91,7 @@ Ext.define('Traccar.view.edit.Notifications', {
                 if (value) {
                     notificators = value.split(/[ ,]+/).filter(Boolean);
                     for (i = 0; i < notificators.length; i++) {
-                        result += Traccar.app.getNotificatorString(notificators[i]) + (i < notificators.length - 1 ? ', ' : '');
+                        result += Geontrack.app.getNotificatorString(notificators[i]) + (i < notificators.length - 1 ? ', ' : '');
                     }
                 }
                 return result;
@@ -105,7 +105,7 @@ Ext.define('Traccar.view.edit.Notifications', {
                 labelField: 'name',
                 store: 'AllCalendars'
             },
-            renderer: Traccar.AttributeFormatter.getFormatter('calendarId')
+            renderer: Geontrack.AttributeFormatter.getFormatter('calendarId')
         }]
     }
 });

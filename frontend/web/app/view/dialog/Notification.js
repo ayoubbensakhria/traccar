@@ -16,12 +16,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-Ext.define('Traccar.view.dialog.Notification', {
-    extend: 'Traccar.view.dialog.BaseEdit',
+Ext.define('Geontrack.view.dialog.Notification', {
+    extend: 'Geontrack.view.dialog.BaseEdit',
 
     requires: [
-        'Traccar.view.ClearableComboBox',
-        'Traccar.view.dialog.NotificationController'
+        'Geontrack.view.ClearableComboBox',
+        'Geontrack.view.dialog.NotificationController'
     ],
 
     controller: 'notification',
@@ -55,7 +55,7 @@ Ext.define('Traccar.view.dialog.Notification', {
                 xtype: 'tagfield',
                 reference: 'alarmsField',
                 fieldLabel: Strings.sharedAlarms,
-                maxWidth: Traccar.Style.formFieldWidth,
+                maxWidth: Geontrack.Style.formFieldWidth,
                 store: 'AlarmTypes',
                 valueField: 'key',
                 displayField: 'name',
@@ -69,7 +69,7 @@ Ext.define('Traccar.view.dialog.Notification', {
                 xtype: 'tagfield',
                 fieldLabel: Strings.notificationNotificators,
                 name: 'notificators',
-                maxWidth: Traccar.Style.formFieldWidth,
+                maxWidth: Geontrack.Style.formFieldWidth,
                 store: 'AllNotificators',
                 valueField: 'type',
                 displayField: 'name',
