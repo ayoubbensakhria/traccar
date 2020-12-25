@@ -79,7 +79,7 @@ const LoginPage = () => {
   return (
     <main className={classes.root}>
       <Paper className={classes.paper}>
-        <img className={classes.logo} src='/logo.png' alt='Geontrack' />
+        <img className={classes.logo} src='/logo.png' alt='Geontrack' width='150' />
         <form onSubmit={handleLogin}>
 
           <TextField

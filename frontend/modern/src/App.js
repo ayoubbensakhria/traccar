@@ -25,6 +25,7 @@ import ChartReportPage from './reports/ChartReportPage';
 import DriversPage from './settings/DriversPage';
 import DriverPage from './settings/DriverPage';
 
+
 const App = () => {
   const initialized = useSelector(state => !!state.session.server && !!state.session.user);
 

@@ -31,6 +31,9 @@ import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import FolderIcon from '@material-ui/icons/Folder';
 import ReplayIcon from '@material-ui/icons/Replay';
 import t from './common/localization';
+import logo from "../public/logo_white.png";
+import userAttributes from './attributes/userAttributes';
+
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -45,7 +48,18 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
+    color: "white"
   },
+  title: {
+    flexGrow: 1,
+    textAlign: "center",
+
+  },
+  logo: {
+    maxWidth: 130,
+    marginRight: '10px'
+  },
+  
 }));
 
 const MainToolbar = () => {
@@ -55,7 +69,6 @@ const MainToolbar = () => {
   const history = useHistory();
   const adminEnabled = useSelector(state => state.session.user && state.session.user.administrator);
   const userId = useSelector(state => state.session.user && state.session.user.id);
-
   const openDrawer = () => { setDrawer(true) }
   const closeDrawer = () => { setDrawer(false) }
 
@@ -69,18 +82,19 @@ const MainToolbar = () => {
 
   return (
     <>
-      <AppBar position="static" className={classes.appBar}>
+      <AppBar 
+      position="static" className={classes.appBar}>
         <Toolbar>
           <IconButton
             className={classes.menuButton}
-            color="inherit"
             onClick={openDrawer}>
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" color="inherit" className={classes.flex}>
-            Geontrack
+          <img src={logo} alt="Kitty Katty!" className={classes.logo} />
+          <Typography variant="h6" color="{inherit}" className={classes.title}>
+            ID: {userId}
           </Typography>
-          <Button color="inherit" onClick={handleLogout}>{t('loginLogout')}</Button>
+          <Button color="secondary" onClick={handleLogout}>{t('loginLogout')}</Button>
         </Toolbar>
       </AppBar>
       <Drawer open={drawer} onClose={closeDrawer}>
