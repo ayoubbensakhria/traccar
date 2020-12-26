@@ -31,7 +31,7 @@ import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import FolderIcon from '@material-ui/icons/Folder';
 import ReplayIcon from '@material-ui/icons/Replay';
 import t from './common/localization';
-import logo from "../public/logo_white.png";
+import logo from "../public/logo.png";
 import userAttributes from './attributes/userAttributes';
 
 
@@ -48,7 +48,6 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
-    color: "white"
   },
   title: {
     flexGrow: 1,
@@ -56,7 +55,7 @@ const useStyles = makeStyles(theme => ({
 
   },
   logo: {
-    maxWidth: 130,
+    maxWidth: 150,
     marginRight: '10px'
   },
   
@@ -83,18 +82,20 @@ const MainToolbar = () => {
   return (
     <>
       <AppBar 
-      position="static" className={classes.appBar}>
+      position="static" className={classes.appBar} color="secondary" >
         <Toolbar>
           <IconButton
             className={classes.menuButton}
-            onClick={openDrawer}>
+            onClick={openDrawer}
+            color = "tertiary"
+            >
             <MenuIcon />
           </IconButton>
           <img src={logo} alt="Kitty Katty!" className={classes.logo} />
           <Typography variant="h6" color="{inherit}" className={classes.title}>
             ID: {userId}
           </Typography>
-          <Button color="secondary" onClick={handleLogout}>{t('loginLogout')}</Button>
+          <Button color="tertiary" onClick={handleLogout}>{t('loginLogout')}</Button>
         </Toolbar>
       </AppBar>
       <Drawer open={drawer} onClose={closeDrawer}>

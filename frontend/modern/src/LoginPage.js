@@ -7,6 +7,11 @@ import FormControl from '@material-ui/core/FormControl';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
+import ReactFlagsSelect from 'react-flags-select';
+
+//import css module
+import 'react-flags-select/css/react-flags-select.css';
+ 
 
 import t from './common/localization';
 
@@ -40,6 +45,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }));
+
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -76,6 +82,8 @@ const LoginPage = () => {
     }
   }
 
+
+
   return (
     <main className={classes.root}>
       <Paper className={classes.paper}>
@@ -106,6 +114,12 @@ const LoginPage = () => {
             type='password'
             autoComplete='current-password'
             onChange={handlePasswordChange} />
+
+<ReactFlagsSelect 
+ countries={["GB", "FR", "DE"]} 
+ customLabels={{"GB": t('English'),"FR": t('French'),"DE": t('German')}} 
+ placeholder= {t('selectALanguage')} 
+ defaultCountry="FR" />
 
           <FormControl fullWidth margin='normal'>
             <div className={classes.buttons}>

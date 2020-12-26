@@ -51,6 +51,7 @@ import uz from '../../../web/l10n/uz.json';
 import vi from '../../../web/l10n/vi.json';
 import zh from '../../../web/l10n/zh.json';
 import zh_TW from '../../../web/l10n/zh_TW.json';
+import { Alert } from '@material-ui/lab';
 
 const supportedLanguages = {
   'af': { data: af, name: 'Afrikaans' },
@@ -108,11 +109,13 @@ const supportedLanguages = {
   'zh_TW': { data: zh_TW, name: '中文 (Taiwan)' }
 };
 
+// load system languages
+
 const languages = window.navigator.languages !== undefined ? window.navigator.languages.slice() : [];
 let language = window.navigator.userLanguage || window.navigator.language;
 languages.push(language);
 languages.push(language.substring(0, 2));
-languages.push('en');
+
 for (let i = 0; i < languages.length; i++) {
   language = languages[i].replace('-', '_');
   if (language in supportedLanguages) {
@@ -125,6 +128,9 @@ for (let i = 0; i < languages.length; i++) {
     }
   }
 }
+
+// default language is French
+language = 'fr';
 
 const selectedLanguage = supportedLanguages[language];
 

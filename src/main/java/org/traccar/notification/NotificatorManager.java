@@ -30,7 +30,7 @@ import org.traccar.notificators.NotificatorMail;
 import org.traccar.notificators.NotificatorNull;
 import org.traccar.notificators.Notificator;
 import org.traccar.notificators.NotificatorSms;
-import org.traccar.notificators.NotificatorGeontrack;
+import org.traccar.notificators.NotificatorTraccar;
 import org.traccar.notificators.NotificatorWeb;
 import org.traccar.notificators.NotificatorTelegram;
 import org.traccar.notificators.NotificatorPushover;
@@ -61,7 +61,7 @@ public final class NotificatorManager {
                     defaultNotificator = NotificatorFirebase.class.getCanonicalName();
                     break;
                 case "traccar":
-                    defaultNotificator = NotificatorGeontrack.class.getCanonicalName();
+                    defaultNotificator = NotificatorTraccar.class.getCanonicalName();
                     break;
                 case "telegram":
                     defaultNotificator = NotificatorTelegram.class.getCanonicalName();

@@ -2,9 +2,9 @@ package org.traccar.notificators;
 
 import org.traccar.Context;
 
-public class NotificatorGeontrack extends NotificatorFirebase {
+public class NotificatorTraccar extends NotificatorFirebase {
 
-    public NotificatorGeontrack() {
+    public NotificatorTraccar() {
         super(
                 "https://www.traccar.org/push/",
                 Context.getConfig().getString("notificator.traccar.key"));
