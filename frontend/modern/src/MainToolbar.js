@@ -77,12 +77,13 @@ const MainToolbar = () => {
       dispatch(sessionActions.updateUser(null));
       history.push('/login');
     }
-  }
 
+  }
+  
   return (
     <>
       <AppBar 
-      position="static" className={classes.appBar} color="secondary" >
+      position="static" className={classes.appBar} color="tertiary" >
         <Toolbar>
           <IconButton
             className={classes.menuButton}
@@ -91,10 +92,19 @@ const MainToolbar = () => {
             >
             <MenuIcon />
           </IconButton>
+          <Button color="tertiary" onClick={() => history.push('/')}>
           <img src={logo} alt="Kitty Katty!" className={classes.logo} />
+          </Button>
           <Typography variant="h6" color="{inherit}" className={classes.title}>
             ID: {userId}
           </Typography>
+          <IconButton color="tertiary" aria-label="upload picture" component="span" disabled={!userId} onClick={() => history.push(`/user/${userId}`)}>
+          <PersonIcon />
+        </IconButton>
+          <IconButton color="tertiary" aria-label="upload picture" component="span" onClick={() => history.push('/reports/event')}>
+          <NotificationsActiveIcon />
+        </IconButton>
+ 
           <Button color="tertiary" onClick={handleLogout}>{t('loginLogout')}</Button>
         </Toolbar>
       </AppBar>
