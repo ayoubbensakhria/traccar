@@ -14,6 +14,7 @@ import 'react-flags-select/css/react-flags-select.css';
  
 
 import t from './common/localization';
+import {setDefaultLanguage} from './common/localization';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -47,6 +48,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
 const LoginPage = () => {
   const dispatch = useDispatch();
 
@@ -56,6 +58,24 @@ const LoginPage = () => {
 
   const classes = useStyles();
   const history = useHistory();
+
+  // Handle language selection
+  const onSelectFlag = (countryCode) => {
+    switch (countryCode) {
+      case "GB":
+        setDefaultLanguage("en");
+        break;  
+      case "FR":
+        setDefaultLanguage("fr");
+        break; 
+      case "DE":
+        setDefaultLanguage("de");
+        break; 
+      default:
+        setDefaultLanguage("fr");
+        break;
+    }
+   }
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -82,6 +102,7 @@ const LoginPage = () => {
     }
   }
 
+ 
 
 
   return (
@@ -115,11 +136,12 @@ const LoginPage = () => {
             autoComplete='current-password'
             onChange={handlePasswordChange} />
 
-<ReactFlagsSelect 
- countries={["GB", "FR", "DE"]} 
- customLabels={{"GB": t('English'),"FR": t('French'),"DE": t('German')}} 
- placeholder= {t('selectALanguage')} 
- defaultCountry="FR" />
+          <ReactFlagsSelect 
+          countries={["GB", "FR", "DE"]} 
+          customLabels={{"GB": t('English'),"FR": t('French'),"DE": t('German')}} 
+          placeholder= {t('selectALanguage')} 
+          onSelect={onSelectFlag}
+          />
 
           <FormControl fullWidth margin='normal'>
             <div className={classes.buttons}>

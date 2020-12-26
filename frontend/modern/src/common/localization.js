@@ -113,8 +113,10 @@ const supportedLanguages = {
 
 const languages = window.navigator.languages !== undefined ? window.navigator.languages.slice() : [];
 let language = window.navigator.userLanguage || window.navigator.language;
+
 languages.push(language);
 languages.push(language.substring(0, 2));
+
 
 for (let i = 0; i < languages.length; i++) {
   language = languages[i].replace('-', '_');
@@ -129,10 +131,21 @@ for (let i = 0; i < languages.length; i++) {
   }
 }
 
+
 // default language is French
 language = 'fr';
 
-const selectedLanguage = supportedLanguages[language];
+let selectedLanguage = supportedLanguages[language];
+
+// switch language
+function switchLanguage (language){
+  selectedLanguage =  supportedLanguages[language] ;
+}
+
+// set default language
+export const setDefaultLanguage = (defaultLanguage)=> {
+  switchLanguage (defaultLanguage);
+}
 
 export const findStringKeys = (predicate) => {
   return Object.keys(selectedLanguage.data).filter(predicate);

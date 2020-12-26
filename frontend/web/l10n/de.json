@@ -447,5 +447,10 @@
     "categoryVan": "Van",
     "categoryScooter": "Roller",
     "maintenanceStart": "Start",
-    "maintenancePeriod": "Periode"
+    "maintenancePeriod": "Periode",
+
+        "selectALanguage": "Wählen Sie eine Sprache",
+        "English": "Englisch",
+        "French": "Französisch",
+        "German": "Deutsch"
 }
