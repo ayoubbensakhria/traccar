@@ -8,6 +8,17 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import ReactFlagsSelect from 'react-flags-select';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import IconButton from '@material-ui/core/IconButton';
+import LockIcon from '@material-ui/icons/Lock';
+import Box from '@material-ui/core/Box';
 
 //import css module
 import 'react-flags-select/css/react-flags-select.css';
@@ -21,6 +32,7 @@ const useStyles = makeStyles(theme => ({
     width: 'auto',
     marginLeft: theme.spacing(3),
     marginRight: theme.spacing(3),
+    marginTop: theme.spacing(4),
     [theme.breakpoints.up(400 + theme.spacing(3 * 2))]: {
       width: 400,
       marginLeft: 'auto',
@@ -33,6 +45,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center',
     padding: theme.spacing(3),
+
   },
   logo: {
     marginTop: theme.spacing(2)
@@ -44,6 +57,13 @@ const useStyles = makeStyles(theme => ({
     '& > *': {
       flexBasis: '40%',
     },
+  },
+  margin: {
+    margin: theme.spacing(1),
+  },
+  fields: {
+    marginTop: '20px',
+    marginBottom: '20px'
   },
 }));
 
@@ -81,8 +101,9 @@ const LoginPage = () => {
     setEmail(event.target.value);
   }
 
-  const handlePasswordChange = (event) => {
+  const handlePasswordChange  = (event) => {
     setPassword(event.target.value);
+
   }
 
   const handleRegister = () => {
@@ -102,17 +123,47 @@ const LoginPage = () => {
     }
   }
 
- 
+  const [values, setValues] = React.useState({
+    amount: '',
+    password: '',
+    weight: '',
+    weightRange: '',
+    showPassword: false,
+  });
+
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
 
 
   return (
     <main className={classes.root}>
       <Paper className={classes.paper}>
-        <img className={classes.logo} src='/logo.png' alt='Geontrack' width='150' />
-        <form onSubmit={handleLogin}>
+      <Box mt={2}>     
 
+        <img className={classes.logo} src='/logo.png' alt='Geontrack' width='200' />
+</Box>
+        <form onSubmit={handleLogin}>
+        <Box mt={2}>     
           <TextField
-            margin='normal'
+          id="input-with-icon-textfield"
+          variant="outlined"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <AccountCircle />
+              </InputAdornment>
+            ),
+          }}
+            margin={classes.margin}
             required
             fullWidth
             error={failed}
@@ -123,20 +174,51 @@ const LoginPage = () => {
             autoFocus
             onChange={handleEmailChange}
             helperText={failed && 'Invalid username or password'} />
+            </Box>
 
+            <Box mt={2}>     
           <TextField
+            label = 'Pass'
             margin='normal'
+            variant="outlined"
             required
             fullWidth
             error={failed}
             label={t('userPassword')}
             name='password'
-            value={password}
-            type='password'
             autoComplete='current-password'
-            onChange={handlePasswordChange} />
+            onChange={handlePasswordChange}
+            id="standard-adornment-password"
+            type={values.showPassword ? 'text' : 'password'}
+            value={password}
+            id="input-with-icon-adornment"
+
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <LockIcon />
+              </InputAdornment>
+            ),
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                >
+                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            )
+            
+          }}
+           
+            />
+            </Box>
+
 
           <ReactFlagsSelect 
+          class = {classes.fields}
           countries={["GB", "FR", "DE"]} 
           customLabels={{"GB": t('English'),"FR": t('French'),"DE": t('German')}} 
           placeholder= {t('selectALanguage')} 

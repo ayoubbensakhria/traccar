@@ -21,6 +21,8 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import PeopleIcon from '@material-ui/icons/People';
 import StorageIcon from '@material-ui/icons/Storage';
 import PersonIcon from '@material-ui/icons/Person';
+import Badge from '@material-ui/core/Badge';
+
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
@@ -32,7 +34,6 @@ import FolderIcon from '@material-ui/icons/Folder';
 import ReplayIcon from '@material-ui/icons/Replay';
 import t from './common/localization';
 import logo from "../public/logo.png";
-import userAttributes from './attributes/userAttributes';
 
 
 const useStyles = makeStyles(theme => ({
@@ -95,14 +96,16 @@ const MainToolbar = () => {
           <Button color="tertiary" onClick={() => history.push('/')}>
           <img src={logo} alt="Kitty Katty!" className={classes.logo} />
           </Button>
-          <Typography variant="h6" color="{inherit}" className={classes.title}>
-            ID: {userId}
+          <Typography  color="tertiary" className={classes.title}>
+            v1.0
           </Typography>
           <IconButton color="tertiary" aria-label="upload picture" component="span" disabled={!userId} onClick={() => history.push(`/user/${userId}`)}>
           <PersonIcon />
         </IconButton>
           <IconButton color="tertiary" aria-label="upload picture" component="span" onClick={() => history.push('/reports/event')}>
+          <Badge badgeContent={1} color="alert">
           <NotificationsActiveIcon />
+        </Badge>
         </IconButton>
  
           <Button color="tertiary" onClick={handleLogout}>{t('loginLogout')}</Button>
