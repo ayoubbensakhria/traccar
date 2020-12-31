@@ -2,7 +2,7 @@ FROM openjdk:8-jre-slim
 
 ENV GEONTRACK_VERSION 4.11
 
-WORKDIR /opt/traccar
+WORKDIR /opt/geontrack
 
 RUN set -ex && \
     apt-get update &&\
@@ -11,7 +11,7 @@ RUN set -ex && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/*
 
-COPY 
+COPY target/tracker-server.jar /tracker-server.jar
 
 ENTRYPOINT ["java", "-Xms512m", "-Xmx512m", "-Djava.net.preferIPv4Stack=true"]
 
