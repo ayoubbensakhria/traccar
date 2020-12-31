@@ -125,7 +125,7 @@
     "userAdmin": "Admin",
     "userRemember": "Rappel",
     "userExpirationTime": "Expiration",
-    "userDeviceLimit": "Limite de l'appareil",
+    "userDeviceLimit": "Limite du nombre d'appareils",
     "userUserLimit": "Limite d'utilisateurs",
     "userDeviceReadonly": "Appareil - Lecture seule",
     "userLimitCommands": "Commandes de limite",
@@ -452,7 +452,11 @@
     "selectALanguage": "Sélectionnez une langue",
     "English": "Anglais",
     "French": "Français",
-    "German": "Allemand"
-  
+    "German": "Allemand",
+    "userHasAccount": "Déjà inscrit?",
+    "registrationSuccessful": "Utilisateur enregistré avec succès",
+    "registrationUnsuccessful": "Erreur veuillez rééssayer plus tard",
+    "quickActions": "Actions rapides"
+
 
 }

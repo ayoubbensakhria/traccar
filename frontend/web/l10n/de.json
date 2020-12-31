@@ -452,5 +452,9 @@
         "selectALanguage": "Wählen Sie eine Sprache",
         "English": "Englisch",
         "French": "Französisch",
-        "German": "Deutsch"
+        "German": "Deutsch",
+        "userHasAccount": "Haben Sie bereits ein Konto?",
+        "registrationSuccessful": "Erfolgreich registrierter Benutzer",
+        "registrationUnsuccessful": "Fehler, bitte versuchen Sie es in einem Moment erneut"
+
 }

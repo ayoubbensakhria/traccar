@@ -6,6 +6,7 @@ import t from '../common/localization';
 import { useEffectAsync } from '../reactHelper';
 import EditCollectionView from '../EditCollectionView';
 import { formatBoolean } from '../common/formatter';
+ 
 
 const useStyles = makeStyles(theme => ({
   columnAction: {
@@ -18,6 +19,11 @@ const UsersView = ({ updateTimestamp, onMenuClick }) => {
   const classes = useStyles();
 
   const [items, setItems] = useState([]);
+
+
+  const handleRemove = async (itemId) => {
+   
+  }
 
   useEffectAsync(async () => {
     const response = await fetch('/api/users');
@@ -35,7 +41,10 @@ const UsersView = ({ updateTimestamp, onMenuClick }) => {
           <TableCell>{t('sharedName')}</TableCell>
           <TableCell>{t('userEmail')}</TableCell>
           <TableCell>{t('userAdmin')}</TableCell>
+          <TableCell>{t('userExpirationTime')}</TableCell>
           <TableCell>{t('sharedDisabled')}</TableCell>
+          <TableCell>{t('quickActions')}</TableCell>
+
         </TableRow>
       </TableHead>
       <TableBody>
@@ -48,8 +57,12 @@ const UsersView = ({ updateTimestamp, onMenuClick }) => {
             </TableCell>
             <TableCell>{item.name}</TableCell>
             <TableCell>{item.email}</TableCell>
-            <TableCell>{formatBoolean(item, 'administrator')}</TableCell>
-            <TableCell>{formatBoolean(item, 'disabled')}</TableCell>
+            <TableCell>{t("shared" + formatBoolean(item.administrator))}</TableCell>
+            <TableCell>{item.expirationTime}</TableCell>
+            <TableCell>{t("shared" + formatBoolean(item.disabled))}</TableCell>
+            <TableCell><button onClick ={handleRemove(item.id)}>{t('sharedRemove')}</button></TableCell>
+
+
           </TableRow>
         ))}
       </TableBody>

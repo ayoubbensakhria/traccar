@@ -453,5 +453,9 @@
         "selectALanguage": "Select a language",
         "English": "English",
         "French": "French",
-        "German": "German"
+        "German": "German",
+        "userHasAccount": "Already registered?",
+        "registrationSuccessful": "User Successfuly registered",
+        "registrationUnsuccessful": "Error, please try again in a moment",
+        "quickActions": "Quick Actions"
 }
