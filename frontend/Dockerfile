@@ -8,7 +8,6 @@ ENV PATH /app/modern/node_modules/.bin:$PATH
 WORKDIR /modern
 
 COPY modern/package.json ./
-COPY modern/package-lock.json ./
 COPY package.json ./
 
 WORKDIR ../
