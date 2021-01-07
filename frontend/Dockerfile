@@ -13,7 +13,7 @@ COPY package.json ./
 
 WORKDIR ../
 
-EXPOSE 3000
+EXPOSE 3001
 
 # add app
 COPY . ./
