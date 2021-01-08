@@ -12,8 +12,6 @@ COPY package.json ./
 
 WORKDIR ../
 
-EXPOSE 3001
-
 # add app
 COPY . ./
 
@@ -21,5 +19,9 @@ WORKDIR /modern
 
 RUN npm install --silent
 
+# expose the app
+EXPOSE 3000
+
 # start app
 CMD ["npm", "start"]
+

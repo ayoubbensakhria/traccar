@@ -16,3 +16,5 @@ RUN set -ex && \
 ENTRYPOINT ["java", "-Xms512m", "-Xmx512m", "-Djava.net.preferIPv4Stack=true"]
 
 CMD ["-jar", "tracker-server.jar", "conf/traccar.xml"]
+
+EXPOSE 8082
